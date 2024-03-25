@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('date');
             $table->date('limitedate');
             $table->boolean('delay');
-            $table->boolean('Accepter');
+            $table->boolean('accept');
             $table->timestamps();
         });
     }

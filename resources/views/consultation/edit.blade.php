@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="container">
-    <p class="flex text-xl justify-center my-5">Création d'une consultation</p>
-    <form action="{{ route('consultation.store') }}" method="post">
+    <p class="flex text-xl justify-center my-5">Modification d'une consultation</p>
+    <form action="{{ route('consultation.update', $consultations->id) }}" method="post">
         @csrf
-        @method("post")
+        @method("put")
 
         <div class="mb-3">
             <label for="date" class="form-label">Date de la consultation</label>
 
-            <input type="date" class="form-control" name="date">
+            <input type="date" class="form-control" name="date" value="{{ $consultation->date }}">
             @error("date")
                 <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -34,12 +34,11 @@
             @enderror
         </div>
 
-        <!-- FAIRE IF POUR SAVOIR SI CEST UN CLIENT OU UN EMPLOYER QUI FAIT LE FORMULAIRE -> client:value=0 // employer:value=1-->
-        <div class="hidden">
-            <label for="accept" class="form-label">accepter</label>
+        <div>
+            <label for="accepter" class="form-label">accepter</label>
 
-            <input type="boolean" class="form-control" name="accept" value="{{ auth()->user()->client == 0 ? '1' : '0' }}">
-            @error("accept")
+            <input type="boolean" class="form-control" name="accepter" value="{{ auth()->user()->client == 0 ? '1' : '0' }}">
+            @error("accepter")
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>

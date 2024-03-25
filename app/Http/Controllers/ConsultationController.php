@@ -37,7 +37,7 @@ class ConsultationController extends Controller
         $consultation->date = $data['date'];
         $consultation->limitedate = $data['limitedate'];
         $consultation->delay = $data['delay'];
-        $consultation->accepter = $data['accepter'];
+        $consultation->accept = $data['accept'];
         $consultation->save();
 
         return redirect()->route('consultation.index');
@@ -57,7 +57,8 @@ class ConsultationController extends Controller
      */
     public function edit(Consultation $consultation)
     {
-        //
+        $consultations = consultation::all();
+        return view('consultation.edit', compact('consultations'));
     }
 
     /**
@@ -65,7 +66,17 @@ class ConsultationController extends Controller
      */
     public function update(Request $request, Consultation $consultation)
     {
-        //
+        $data = $request->all();
+
+        $consultation = Consultation::find($consultation->id);
+
+        $consultation->date = $data['date'];
+        $consultation->limitedate = $data['limitedate'];
+        $consultation->delay = $data['delay'];
+        $consultation->accept = $data['accept'];
+        $consultation->save();
+
+        return redirect()->route('consultation.index');
     }
 
     /**
