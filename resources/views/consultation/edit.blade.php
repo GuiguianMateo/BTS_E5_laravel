@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <p class="flex text-xl justify-center my-5">Modification d'une consultation</p>
-    <form action="{{ route('consultation.update', $consultations->id) }}" method="post">
+    <form action="{{ route('consultation.update', $consultation->id) }}" method="post">
         @csrf
         @method("put")
 

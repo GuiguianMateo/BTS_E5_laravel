@@ -12,6 +12,7 @@
                             {{ $consultation->id }} - {{ $consultation->date }}
                         </div>
                         <a href="{{ route('consultation.edit', $consultation->id) }}" class="btn btn-primary">Modifier</a>
+                        <a href="{{ route('consultation.destroy', $consultation->id) }}" class="btn btn-primary">Modifier</a>
                     </div>
                 </li>
             @endif

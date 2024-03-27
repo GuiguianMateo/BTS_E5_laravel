@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Consultation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConsultationController extends Controller
 {
@@ -66,9 +67,9 @@ class ConsultationController extends Controller
      */
     public function update(Request $request, Consultation $consultation)
     {
-        $data = $request->all();
-
         $consultation = Consultation::find($consultation->id);
+
+        $data = $request->all();
 
         $consultation->date = $data['date'];
         $consultation->limitedate = $data['limitedate'];
@@ -84,6 +85,7 @@ class ConsultationController extends Controller
      */
     public function destroy(Consultation $consultation)
     {
-        //
+        $consultation->delete();
+        return redirect()->route('consultation.index');
     }
 }
