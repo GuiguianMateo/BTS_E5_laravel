@@ -19,7 +19,7 @@
         <div class="mb-3">
             <label for="limitedate" class="form-label">date limite de la consultation</label>
 
-            <input type="date" class="form-control" name="limitedate">
+            <input type="date" class="form-control" name="limitedate" value="{{ $consultation->date }}">
             @error("limitedate")
                 <p class="text-danger">{{ $message }}</p>
             @enderror

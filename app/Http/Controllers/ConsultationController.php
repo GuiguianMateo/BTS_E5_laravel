@@ -58,8 +58,7 @@ class ConsultationController extends Controller
      */
     public function edit(Consultation $consultation)
     {
-        $consultations = consultation::all();
-        return view('consultation.edit', compact('consultations'));
+        return view('consultation.edit', compact('consultation'));
     }
 
     /**
