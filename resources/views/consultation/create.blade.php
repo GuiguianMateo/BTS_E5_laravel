@@ -34,11 +34,12 @@
             @enderror
         </div>
 
-        <!-- FAIRE IF POUR SAVOIR SI CEST UN CLIENT OU UN EMPLOYER QUI FAIT LE FORMULAIRE -> client:value=0 // employer:value=1-->
         <div class="hidden">
-            <label for="accept" class="form-label">accepter</label>
-
-            <input type="boolean" class="form-control" name="accept" value="{{ auth()->user()->client == 0 ? '1' : '0' }}">
+            <label for="accept" class="form-label">Accepter</label>
+            <input type="radio" class="form-check-input" name="accept" value="1" {{ auth()->user()->client == 0 ? 'checked'   : '' }}>
+            <br>
+            <label for="accept" class="form-label">Refuser</label>
+            <input type="radio" class="form-check-input" name="accept" value="0" {{ auth()->user()->client == 1 ? 'checked'   : '' }}>
             @error("accept")
                 <p class="text-danger">{{ $message }}</p>
             @enderror

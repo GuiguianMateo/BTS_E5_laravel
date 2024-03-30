@@ -31,6 +31,7 @@ class ConsultationController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->all();
 
         $consultation = new Consultation;
@@ -42,7 +43,6 @@ class ConsultationController extends Controller
         $consultation->save();
 
         return redirect()->route('consultation.index');
-
     }
 
     /**
@@ -66,25 +66,35 @@ class ConsultationController extends Controller
      */
     public function update(Request $request, Consultation $consultation)
     {
-        $consultation = Consultation::find($consultation->id);
 
-        $data = $request->all();
+        if (Auth::user()->can('consultation-edit'))
+        {
+            $consultation = Consultation::find($consultation->id);
 
-        $consultation->date = $data['date'];
-        $consultation->limitedate = $data['limitedate'];
-        $consultation->delay = $data['delay'];
-        $consultation->accept = $data['accept'];
-        $consultation->save();
+            $data = $request->all();
 
-        return redirect()->route('consultation.index');
-    }
+            $consultation->date = $data['date'];
+            $consultation->limitedate = $data['limitedate'];
+            $consultation->delay = $data['delay'];
+            $consultation->accept = $data['accept'];
+            $consultation->save();
+
+            return redirect()->route('consultation.index');
+        }
+        abort(401);
+        }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Consultation $consultation)
     {
-        $consultation->delete();
-        return redirect()->route('consultation.index');
+        if (Auth::user()->can('consultation-delete'))
+        {
+            $consultation->delete();
+            return redirect()->route('consultation.index');
+        }
+        abort(401);
+
     }
 }

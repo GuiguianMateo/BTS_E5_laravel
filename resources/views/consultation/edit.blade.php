@@ -19,7 +19,7 @@
         <div class="mb-3">
             <label for="limitedate" class="form-label">date limite de la consultation</label>
 
-            <input type="date" class="form-control" name="limitedate" value="{{ $consultation->date }}">
+            <input type="date" class="form-control" name="limitedate" value="{{ $consultation->limitedate }}">
             @error("limitedate")
                 <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -35,15 +35,18 @@
         </div>
 
         <div>
-            <label for="accepter" class="form-label">accepter</label>
-
-            <input type="boolean" class="form-control" name="accepter" value="{{ auth()->user()->client == 0 ? '1' : '0' }}">
-            @error("accepter")
+            <label for="accept" class="form-label">Accepter</label>
+            <input type="radio" class="form-check-input" name="accept" value="1" {{ old('accept', $consultation->accept) == 1 ? 'checked' : '' }}>
+            <br>
+            <label for="accept" class="form-label">Refuser</label>
+            <input type="radio" class="form-check-input" name="accept" value="0" {{ old('accept', $consultation->accept) == 0 ? 'checked' : '' }}>
+            @error("accept")
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">Crée</button>
+
+        <button type="submit" class="btn btn-primary">Modifié</button>
     </form>
 </div>
 @endsection
