@@ -9,6 +9,7 @@
                 <div>
                     {{ $user->id }} -   {{ $user->name }} {{ $user->firstname }}
                 </div>
+                <a href="{{ route('client.show', $user->id) }}" class="btn btn-primary">Information</a>
             </div>
         </li>
         @empty

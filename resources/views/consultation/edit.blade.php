@@ -46,7 +46,7 @@
         </div>
 
 
-        <button type="submit" class="btn btn-primary">Modifié</button>
+        <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
 </div>
 @endsection

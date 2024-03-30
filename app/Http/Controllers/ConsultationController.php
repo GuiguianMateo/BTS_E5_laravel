@@ -82,7 +82,7 @@ class ConsultationController extends Controller
             return redirect()->route('consultation.index');
         }
         abort(401);
-        }
+    }
 
     /**
      * Remove the specified resource from storage.

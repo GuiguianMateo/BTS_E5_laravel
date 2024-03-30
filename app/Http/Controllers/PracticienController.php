@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\practicien;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PracticienController extends Controller
 {
@@ -30,16 +31,20 @@ class PracticienController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        if (Auth::user()->can('practicien-create'))
+        {
+            $data = $request->all();
 
-        $practicien = new Practicien;
+            $practicien = new Practicien;
 
-        $practicien->name = $data['name'];
-        $practicien->job = $data['job'];
-        $practicien->save();
+            $practicien->name = $data['name'];
+            $practicien->job = $data['job'];
+            $practicien->save();
 
-        return redirect()->route('practicien.index');
+            return redirect()->route('practicien.index');
 
+        }
+        abort(401);
     }
 
     /**
@@ -55,7 +60,7 @@ class PracticienController extends Controller
      */
     public function edit(practicien $practicien)
     {
-        //
+        return view('practicien.edit', compact('practicien'));
     }
 
     /**
@@ -63,7 +68,20 @@ class PracticienController extends Controller
      */
     public function update(Request $request, practicien $practicien)
     {
-        //
+        if (Auth::user()->can('practicien-edit'))
+        {
+            $practicien = Practicien::find($practicien->id);
+
+            $data = $request->all();
+
+            $practicien->name = $data['name'];
+            $practicien->job = $data['job'];
+
+            $practicien->save();
+
+            return redirect()->route('practicien.index');
+        }
+        abort(401);
     }
 
     /**
@@ -71,6 +89,11 @@ class PracticienController extends Controller
      */
     public function destroy(practicien $practicien)
     {
-        //
+        if (Auth::user()->can('practicien-delete'))
+        {
+            $practicien->delete();
+            return redirect()->route('practicien.index');
+        }
+        abort(401);
     }
 }

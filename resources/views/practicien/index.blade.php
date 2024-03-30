@@ -10,6 +10,18 @@
                 <div>
                     {{ $practicien->id }} - {{ $practicien->name }} {{ $practicien->job }}
                 </div>
+                <div class="flex gap-2">
+                    @can('practicien-edit')
+                        <a href="{{ route('practicien.edit', $practicien->id) }}" class="btn btn-primary">Modifier</a>
+                    @endcan
+                    @can('practicien-delete')
+                        <form action="{{ route('practicien.destroy', $practicien->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    @endcan
+                    </div>
             </div>
         </li>
         @empty

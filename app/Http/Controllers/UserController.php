@@ -22,7 +22,7 @@ class UserController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('user.create', compact('users'));
+        return view('auth.register', compact('users'));
     }
 
     /**
@@ -38,7 +38,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        $users = User::find($user->id);
+        return view('user.show', compact('user'));
     }
 
     /**
