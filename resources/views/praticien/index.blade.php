@@ -13,16 +13,16 @@
                     {{ $praticien->id }} - {{ $praticien->name }} {{ $praticien->job }}
                 </div>
                 <div class="flex gap-2">
-                    @can('praticien-edit')
+                    {{-- @can('praticien-edit') --}}
                         <a href="{{ route('praticien.edit', $praticien->id) }}" class="btn btn-primary">Modifier</a>
-                    @endcan
-                    @can('praticien-delete')
+                    {{-- @endcan --}}
+                    {{-- @can('praticien-delete') --}}
                         <form action="{{ route('praticien.destroy', $praticien->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
-                    @endcan
+                    {{-- @endcan --}}
                     </div>
             </div>
         </li>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Consultation;
 use App\Models\Type;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +26,8 @@ class ConsultationController extends Controller
     {
         $consultations = consultation::all();
         $types = type::all();
-        return view('consultation.create', compact('consultations','types'));
+        $users = User::all();
+        return view('consultation.create', compact('consultations','types','users'));
     }
 
     /**
@@ -33,17 +35,18 @@ class ConsultationController extends Controller
      */
     public function store(Request $request, Type $type)
     {
-
         $data = $request->all();
+
         $consultation = new Consultation;
+        $type = Type::find($data['type_id']);
 
         $consultation->date = $data['date'];
 
-        $newTimestamp = strtotime($data['date'] . ' + ' . $type->duration . ' days');
-        $consultation->limitedate = date('Y-m-d H:i:s', $newTimestamp);
+        $consultation->limitedate = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
 
         $consultation->delay = $data['delay'];
         $consultation->type_id = $data['type_id'];
+        $consultation->user_id = Auth::id();
         $consultation->save();
 
         return redirect()->route('consultation.index');
@@ -62,7 +65,8 @@ class ConsultationController extends Controller
      */
     public function edit(Consultation $consultation)
     {
-        return view('consultation.edit', compact('consultation'));
+        $types = type::all();
+        return view('consultation.edit', compact('consultation','types'));
     }
 
     /**
@@ -71,19 +75,24 @@ class ConsultationController extends Controller
     public function update(Request $request, Consultation $consultation, Type $type)
     {
 
-        if (Auth::user()->can('consultation-edit'))
-        {
+        // if (Auth::user()->can('consultation-edit'))
+        // {
             $consultation = Consultation::find($consultation->id);
             $data = $request->all();
+            $type = Type::find($data['type_id']);
 
             $consultation->date = $data['date'];
-            $consultation->limitedate = $data['date'] + $type->$data['duration'];
+
+            $consultation->limitedate = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
+
             $consultation->delay = $data['delay'];
+            $consultation->type_id = $data['type_id'];
+            $consultation->user_id = Auth::id();
             $consultation->save();
 
             return redirect()->route('consultation.index');
-        }
-        abort(401);
+        // }
+        // abort(401);
     }
 
     /**
@@ -91,12 +100,12 @@ class ConsultationController extends Controller
      */
     public function destroy(Consultation $consultation)
     {
-        if (Auth::user()->can('consultation-delete'))
-        {
+        // if (Auth::user()->can('consultation-delete'))
+        // {
             $consultation->delete();
             return redirect()->route('consultation.index');
-        }
-        abort(401);
+        // }
+        // abort(401);
 
     }
 }

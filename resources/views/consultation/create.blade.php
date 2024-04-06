@@ -29,6 +29,21 @@
             @enderror
         </div>
 
+        @if ($users->client == 0)
+            <div class="mb-3">
+                <label for="user_id">Choisir Cleint</label>
+                <select class="form-select" name="user_id" id="user_id">
+                    <option value="type">Veuillez choisir un client</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
+                @error('user_id')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+        @endif
+
         <div class="hidden">
             <label for="delay" class="form-label">retard</label>
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('limitedate');
             $table->boolean('delay');
             $table->foreignId('type_id')->constrained('types');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
