@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ConsultationController;
-use App\Http\Controllers\PracticienController;
+use App\Http\Controllers\PraticienController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('client', UserController::class);
     Route::resource('consultation', ConsultationController::class);
-    Route::resource('practicien', PracticienController::class);
+    Route::resource('praticien', PraticienController::class);
 });
 
 require __DIR__.'/auth.php';

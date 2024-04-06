@@ -17,10 +17,14 @@
         </div>
 
         <div class="mb-3">
-            <label for="limitedate" class="form-label">date limite de la consultation</label>
-
-            <input type="date" class="form-control" name="limitedate">
-            @error("limitedate")
+            <label for="type_id">Choisir un type de consultation</label>
+            <select class="form-select" name="type_id" id="type_id">
+                <option value="type">Veuillez choisir un type</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
+            </select>
+            @error('type_id')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>

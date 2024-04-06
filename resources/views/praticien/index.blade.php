@@ -2,20 +2,22 @@
 
 @section('content')
 <div class="container"><br>
-    <a href="{{ route('practicien.create') }}" class="btn btn-primary mb-3">Ajouter un Practicien</a>
+    {{-- @can('praticien-create') --}}
+        <a href="{{ route('praticien.create') }}" class="btn btn-primary mb-3">Ajouter un Praticien</a>
+    {{-- @endcan --}}
     <ul class="list-group">
-        @forelse ($practiciens as $practicien)
+        @forelse ($praticiens as $praticien)
         <li class="list-group-item">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    {{ $practicien->id }} - {{ $practicien->name }} {{ $practicien->job }}
+                    {{ $praticien->id }} - {{ $praticien->name }} {{ $praticien->job }}
                 </div>
                 <div class="flex gap-2">
-                    @can('practicien-edit')
-                        <a href="{{ route('practicien.edit', $practicien->id) }}" class="btn btn-primary">Modifier</a>
+                    @can('praticien-edit')
+                        <a href="{{ route('praticien.edit', $praticien->id) }}" class="btn btn-primary">Modifier</a>
                     @endcan
-                    @can('practicien-delete')
-                        <form action="{{ route('practicien.destroy', $practicien->id) }}" method="POST">
+                    @can('praticien-delete')
+                        <form action="{{ route('praticien.destroy', $praticien->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Supprimer</button>
@@ -26,7 +28,7 @@
         </li>
         @empty
         <li class="list-group-item">
-            {{ __('Aucun practicien connu')}}
+            {{ __('Aucun praticien connu')}}
         </li>
         @endforelse
     </ul>

@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('practiciens', function (Blueprint $table) {
+        Schema::create('consultations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('job');
+            $table->date('date');
+            $table->date('limitedate');
+            $table->boolean('delay');
+            $table->foreignId('type_id')->constrained('types');
             $table->timestamps();
         });
     }
@@ -24,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('practiciens', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('consultations');
     }
 };

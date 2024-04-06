@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consultation;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,23 +24,26 @@ class ConsultationController extends Controller
     public function create()
     {
         $consultations = consultation::all();
-        return view('consultation.create', compact('consultations'));
+        $types = type::all();
+        return view('consultation.create', compact('consultations','types'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Type $type)
     {
 
         $data = $request->all();
-
         $consultation = new Consultation;
 
         $consultation->date = $data['date'];
-        $consultation->limitedate = $data['limitedate'];
+
+        $newTimestamp = strtotime($data['date'] . ' + ' . $type->duration . ' days');
+        $consultation->limitedate = date('Y-m-d H:i:s', $newTimestamp);
+
         $consultation->delay = $data['delay'];
-        $consultation->accept = $data['accept'];
+        $consultation->type_id = $data['type_id'];
         $consultation->save();
 
         return redirect()->route('consultation.index');
@@ -64,19 +68,17 @@ class ConsultationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Consultation $consultation)
+    public function update(Request $request, Consultation $consultation, Type $type)
     {
 
         if (Auth::user()->can('consultation-edit'))
         {
             $consultation = Consultation::find($consultation->id);
-
             $data = $request->all();
 
             $consultation->date = $data['date'];
-            $consultation->limitedate = $data['limitedate'];
+            $consultation->limitedate = $data['date'] + $type->$data['duration'];
             $consultation->delay = $data['delay'];
-            $consultation->accept = $data['accept'];
             $consultation->save();
 
             return redirect()->route('consultation.index');

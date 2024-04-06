@@ -15,7 +15,7 @@
                     <a class="inline-flex items-center px-1 pt-1 border-b-2 hover:border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ route('client.index') }}">Client</a>
                     <a class="inline-flex items-center px-1 pt-1 border-b-2 hover:border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ route('consultation.index') }}">Consultation</a>
                     {{-- @can(...) --}}
-                    <a class="inline-flex items-center px-1 pt-1 border-b-2 hover:border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ route('practicien.index') }}">Practicien</a>
+                    <a class="inline-flex items-center px-1 pt-1 border-b-2 hover:border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ route('praticien.index') }}">Praticien</a>
                     {{-- @endcan --}}
                 </div>
             </div>

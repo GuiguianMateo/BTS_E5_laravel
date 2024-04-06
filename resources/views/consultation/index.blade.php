@@ -9,7 +9,7 @@
                 <li class="list-group-item">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            {{ $consultation->id }} - {{ $consultation->date }}
+                            {{ $consultation->id }} - {{ $consultation->date }} - {{ $consultation->limitedate}}
                         </div>
                         <div class="flex gap-2">
                         @can('consultation-edit')
