@@ -29,13 +29,15 @@
             @enderror
         </div>
 
-        @if ($users->client == 0)
+        @if(auth()->user()->client == 0)
             <div class="mb-3">
-                <label for="user_id">Choisir Cleint</label>
+                <label for="user_id">Choisir Client</label>
                 <select class="form-select" name="user_id" id="user_id">
                     <option value="type">Veuillez choisir un client</option>
-                    @foreach ($types as $type)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @foreach($users as $user)
+                        @if($user->client == 1)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endif
                     @endforeach
                 </select>
                 @error('user_id')

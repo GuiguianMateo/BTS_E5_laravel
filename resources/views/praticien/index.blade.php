@@ -8,11 +8,11 @@
     <ul class="list-group">
         @forelse ($praticiens as $praticien)
         <li class="list-group-item">
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
+            <div class="sm:flex justify-between align-items-center">
+                <div class="flex justify-center">
                     {{ $praticien->id }} - {{ $praticien->name }} {{ $praticien->job }}
                 </div>
-                <div class="flex gap-2">
+                <div class="flex justify-center gap-2">
                     {{-- @can('praticien-edit') --}}
                         <a href="{{ route('praticien.edit', $praticien->id) }}" class="btn btn-primary">Modifier</a>
                     {{-- @endcan --}}

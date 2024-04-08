@@ -7,11 +7,11 @@
         @forelse ($consultations as $consultation)
             @if ($consultation->accept == 0)
                 <li class="list-group-item">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
+                    <div class="sm:flex justify-between items-center">
+                        <div class="flex justify-center">
                             {{ $consultation->id }} - {{ $consultation->date }} - {{ $consultation->limitedate}}
                         </div>
-                        <div class="flex gap-2">
+                        <div class="flex justify-center gap-2">
                         {{-- @can('consultation-edit') --}}
                             <a href="{{ route('consultation.edit', $consultation->id) }}" class="btn btn-primary">Modifier</a>
                         {{-- @endcan --}}

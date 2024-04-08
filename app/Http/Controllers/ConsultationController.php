@@ -26,7 +26,7 @@ class ConsultationController extends Controller
     {
         $consultations = consultation::all();
         $types = type::all();
-        $users = User::all();
+        $users = user::all();
         return view('consultation.create', compact('consultations','types','users'));
     }
 
@@ -46,7 +46,7 @@ class ConsultationController extends Controller
 
         $consultation->delay = $data['delay'];
         $consultation->type_id = $data['type_id'];
-        $consultation->user_id = Auth::id();
+        $consultation->user_id = $data['user_id'];
         $consultation->save();
 
         return redirect()->route('consultation.index');
@@ -66,7 +66,8 @@ class ConsultationController extends Controller
     public function edit(Consultation $consultation)
     {
         $types = type::all();
-        return view('consultation.edit', compact('consultation','types'));
+        $users = user::all();
+        return view('consultation.edit', compact('consultation','types','users'));
     }
 
     /**
@@ -87,7 +88,7 @@ class ConsultationController extends Controller
 
             $consultation->delay = $data['delay'];
             $consultation->type_id = $data['type_id'];
-            $consultation->user_id = Auth::id();
+            $consultation->user_id = $data['user_id'];
             $consultation->save();
 
             return redirect()->route('consultation.index');
