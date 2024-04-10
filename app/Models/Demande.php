@@ -18,6 +18,4 @@ class Consultation extends Model
     {
         return $this->belongsTo(user::class);
     }
-
-
 }

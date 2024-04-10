@@ -65,7 +65,8 @@ class PraticienController extends Controller
      */
     public function edit(praticien $praticien)
     {
-        return view('praticien.edit', compact('praticien'));
+        $types = type::all();
+        return view('praticien.edit', compact('praticien','types'));
     }
 
     /**
@@ -73,20 +74,20 @@ class PraticienController extends Controller
      */
     public function update(Request $request, praticien $praticien)
     {
-        if (Auth::user()->can('praticien-edit'))
-        {
+        // if (Auth::user()->can('praticien-edit'))
+        // {
             $praticien = Praticien::find($praticien->id);
-
             $data = $request->all();
 
             $praticien->name = $data['name'];
             $praticien->job = $data['job'];
+            $praticien->type_id = $data['type_id'];
 
             $praticien->save();
 
             return redirect()->route('praticien.index');
-        }
-        abort(401);
+        // }
+        // abort(401);
     }
 
     /**

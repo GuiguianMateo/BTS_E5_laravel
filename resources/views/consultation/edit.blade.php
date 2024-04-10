@@ -32,7 +32,7 @@
             <div class="mb-3">
                 <label for="user_id">Choisir Client</label>
                 <select class="form-select" name="user_id" id="user_id">
-                    <option value="">{{ $consultation->user_id }}</option>
+                    <option value="{{ $consultation->user_id }}">{{ $consultation->user_id }}</option>
                     @foreach($users as $user)
                         @if($user->client == 1)
                             <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -45,26 +45,17 @@
             </div>
         @endif
 
-        <div class="hidden">
-            <label for="delay" class="form-label">retard</label>
-
-            <input type="boolean" class="form-control" name="delay" value="{{ $consultation->delay }}">
+        <div class="mb-3">
+            <label for="label">Retard</label><br>
+            <label for="delay" class="form-label">OUI</label>
+            <input type="radio" class="form-check-input" name="delay" value="1" {{ $consultation->delay == 1 ? 'checked'   : '' }}>
+            <br>
+            <label for="delay" class="form-label">NON</label>
+            <input type="radio" class="form-check-input" name="delay" value="0" {{ $consultation->delay == 0 ? 'checked'   : '' }}>
             @error("delay")
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
-
-        <div>
-            <label for="accept" class="form-label">Accepter</label>
-            <input type="radio" class="form-check-input" name="accept" value="1" {{ auth()->user()->client == 0 ? 'checked'   : '' }}>
-            <br>
-            <label for="accept" class="form-label">Refuser</label>
-            <input type="radio" class="form-check-input" name="accept" value="0" {{ auth()->user()->client == 1 ? 'checked'   : '' }}>
-            @error("accept")
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
-
 
         <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
