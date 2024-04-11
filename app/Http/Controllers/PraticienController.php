@@ -6,6 +6,7 @@ use App\Models\Praticien;
 use App\Models\type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 use function PHPSTORM_META\type;
 
@@ -16,8 +17,20 @@ class PraticienController extends Controller
      */
     public function index()
     {
-        $praticiens = Praticien::all();
-        return view('praticien.index', compact('praticiens'));
+        // Effectuer une requête HTTP vers l'API pour récupérer les données
+        $response = Http::get('http://127.0.0.1:8000/api/praticien');
+
+        // Vérifier si la requête a réussi
+        if ($response->successful()) {
+            // Récupérer les données de la réponse
+            $praticiens = $response->json();
+
+            // Passer les données à la vue pour les afficher
+            return view('praticien.index', ['praticiens' => $praticiens]);
+        } else {
+            // En cas d'échec de la requête, gérer l'erreur
+            return back()->withError('Erreur lors de la récupération des données de l\'API');
+        }
     }
 
     /**
