@@ -6,6 +6,7 @@ use App\Models\Praticien;
 use App\Models\type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 use function PHPSTORM_META\type;
 
@@ -18,6 +19,18 @@ class PraticienController extends Controller
     {
         $praticiens = Praticien::all();
         return view('praticien.index', compact('praticiens'));
+
+        // API
+
+        // $response = Http::get('http://127.0.0.1:8000/api/praticien');
+
+        // if ($response->successful()) {
+        //     $praticiens = $response->json();
+
+        //     return view('praticien.index', ['praticiens' => $praticiens]);
+        // } else {
+        //     return back()->withError('Erreur lors de la récupération des données de l\'API');
+        // }
     }
 
     /**
@@ -35,8 +48,8 @@ class PraticienController extends Controller
      */
     public function store(Request $request)
     {
-        // if (Auth::user()->can('praticien-create'))
-        // {
+        if (Auth::user()->can('praticien-create'))
+        {
             $data = $request->all();
 
             $praticien = new Praticien;
@@ -48,8 +61,8 @@ class PraticienController extends Controller
 
             return redirect()->route('praticien.index');
 
-        // }
-        // abort(401);
+        }
+        abort(401);
     }
 
     /**
@@ -65,7 +78,8 @@ class PraticienController extends Controller
      */
     public function edit(praticien $praticien)
     {
-        return view('praticien.edit', compact('praticien'));
+        $types = type::all();
+        return view('praticien.edit', compact('praticien','types'));
     }
 
     /**
@@ -76,11 +90,11 @@ class PraticienController extends Controller
         if (Auth::user()->can('praticien-edit'))
         {
             $praticien = Praticien::find($praticien->id);
-
             $data = $request->all();
 
             $praticien->name = $data['name'];
             $praticien->job = $data['job'];
+            $praticien->type_id = $data['type_id'];
 
             $praticien->save();
 

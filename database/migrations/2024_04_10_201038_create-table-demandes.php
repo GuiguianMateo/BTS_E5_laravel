@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('consultations', function (Blueprint $table) {
+        Schema::create('demandes', function (Blueprint $table) {
             $table->id();
             $table->date('date');
             $table->date('limitedate');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('consultations');
+        Schema::dropIfExists('demandes');
     }
 };

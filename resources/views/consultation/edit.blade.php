@@ -17,34 +17,44 @@
         </div>
 
         <div class="mb-3">
-            <label for="limitedate" class="form-label">date limite de la consultation</label>
+            <label for="type_id">Choisir un type de consultation</label>
+            <select class="form-select" name="type_id" value="{{ $consultation->type_id }}">
+                <option value="{{ $consultation->type_id }}">{{ $consultation->type->name }}</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
+            </select>
+            @error('type_id')
+                 <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
 
-            <input type="date" class="form-control" name="limitedate" value="{{ $consultation->limitedate }}">
-            @error("limitedate")
+        <div class="mb-3">
+            <label for="user_id">Choisir Client</label>
+            <select class="form-select" name="user_id" id="user_id">
+                <option value="{{ $consultation->user_id }}">{{ $consultation->user->name }}</option>
+                @foreach($users as $user)
+                    @if($user->client == 1)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endif
+                @endforeach
+            </select>
+            @error('user_id')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="hidden">
-            <label for="delay" class="form-label">retard</label>
-
-            <input type="boolean" class="form-control" name="delay" value="0">
+        <div class="mb-3">
+            <label for="label">Retard</label><br>
+            <label for="delay" class="form-label">OUI</label>
+            <input type="radio" class="form-check-input" name="delay" value="1" {{ $consultation->delay == 1 ? 'checked'   : '' }}>
+            <br>
+            <label for="delay" class="form-label">NON</label>
+            <input type="radio" class="form-check-input" name="delay" value="0" {{ $consultation->delay == 0 ? 'checked'   : '' }}>
             @error("delay")
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
-
-        <div>
-            <label for="accept" class="form-label">Accepter</label>
-            <input type="radio" class="form-check-input" name="accept" value="1" {{ old('accept', $consultation->accept) == 1 ? 'checked' : '' }}>
-            <br>
-            <label for="accept" class="form-label">Refuser</label>
-            <input type="radio" class="form-check-input" name="accept" value="0" {{ old('accept', $consultation->accept) == 0 ? 'checked' : '' }}>
-            @error("accept")
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
-
 
         <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
