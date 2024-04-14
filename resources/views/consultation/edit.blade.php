@@ -19,6 +19,7 @@
         <div class="mb-3">
             <label for="type_id">Choisir un type de consultation</label>
             <select class="form-select" name="type_id" value="{{ $consultation->type_id }}">
+                <option value="{{ $consultation->type_id }}">{{ $consultation->type->name }}</option>
                 @foreach ($types as $type)
                     <option value="{{ $type->id }}">{{ $type->name }}</option>
                 @endforeach
@@ -31,7 +32,7 @@
         <div class="mb-3">
             <label for="user_id">Choisir Client</label>
             <select class="form-select" name="user_id" id="user_id">
-                <option value="{{ $consultation->user_id }}">{{ $consultation->user_id }}</option>
+                <option value="{{ $consultation->user_id }}">{{ $consultation->user->name }}</option>
                 @foreach($users as $user)
                     @if($user->client == 1)
                         <option value="{{ $user->id }}">{{ $user->name }}</option>

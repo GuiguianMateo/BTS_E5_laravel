@@ -6,8 +6,10 @@
         @forelse ($users as $user)
         <li class="list-group-item">
             <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    {{ $user->id }} -   {{ $user->name }} {{ $user->firstname }}
+                <div class="flex gap-6">
+                    <div class='min-w-40 text-center'>{{ $user->name}}</div>
+                    <div class='min-w-40 text-center'>{{ $user->email }}</div>
+                    <div class='min-w-40 text-center'>{{ $user->firstname }}</div>
                 </div>
                 <a href="{{ route('client.show', $user->id) }}" class="btn btn-primary">Information</a>
             </div>

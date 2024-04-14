@@ -28,7 +28,7 @@
         <div class="mb-3">
             <label for="type_id">Branche du praticien</label>
             <select class="form-select" name="type_id" id="type_id">
-                <option value="{{ $praticien->type_id}}">{{ $praticien->type_id }}</option>
+                <option value="{{ $praticien->type_id}}">{{ $praticien->type->name }}</option>
                 @foreach ($types as $type)
                     <option value="{{ $type->id }}">{{ $type->name }}</option>
                 @endforeach

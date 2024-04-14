@@ -9,8 +9,9 @@
         @forelse ($praticiens as $praticien)
         <li class="list-group-item">
             <div class="sm:flex justify-between align-items-center">
-                <div class="flex justify-center">
-                    {{ $praticien->id }} - {{ $praticien->name }} {{ $praticien->job }}
+                <div class="flex gap-6">
+                    <div class='min-w-40 text-center'>{{ $praticien->name}}</div>
+                    <div class='min-w-40 text-center'>{{ $praticien->job }}</div>
                 </div>
                 <div class="flex justify-center gap-2">
                     @can('praticien-edit')

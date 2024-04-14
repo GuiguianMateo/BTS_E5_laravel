@@ -7,8 +7,10 @@
         @forelse ($consultations as $consultation)
             <li class="list-group-item">
                 <div class="sm:flex justify-between items-center">
-                    <div class="flex justify-center">
-                        {{ $consultation->id }} - {{ $consultation->date }} - {{ $consultation->limitedate}}
+                    <div class="flex gap-6">
+                        <div class='min-w-40 text-center'>{{ $consultation->user->name}}</div>
+                        <div class='min-w-40 text-center'>{{ $consultation->type->name }}</div>
+                        <div class='min-w-40 text-center'>{{ $consultation->limitedate }}</div>
                     </div>
                     <div class="flex justify-center gap-2">
                     @can('consultation-edit')

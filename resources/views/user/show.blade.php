@@ -10,7 +10,7 @@
         <strong>firstname :</strong> {{ $user->firstname }}
     </div>
     <div class="mb-3">
-        <strong>email :</strong> {{ $user->s }}
+        <strong>email :</strong> {{ $user->email }}
     </div>
     <div class="mb-3">
         <strong>birthday :</strong> {{ $user->birthday }}

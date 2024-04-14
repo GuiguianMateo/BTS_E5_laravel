@@ -9,13 +9,13 @@ class Demande extends Model
 {
     use HasFactory;
 
-    function client()
+    function user()
     {
         return $this->belongsTo(user::class);
     }
 
     function type()
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(type::class);
     }
 }

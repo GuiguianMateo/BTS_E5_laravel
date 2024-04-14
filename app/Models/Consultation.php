@@ -9,15 +9,14 @@ class Consultation extends Model
 {
     use HasFactory;
 
-    function client()
-    {
-        return $this->belongsTo(user::class);
-    }
-
     function type()
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(type::class);
     }
 
+    function user()
+    {
+        return $this->belongsTo(user::class);
+    }
 
 }

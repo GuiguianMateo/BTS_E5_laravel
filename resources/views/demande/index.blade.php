@@ -6,8 +6,10 @@
         @forelse ($demandes as $demande)
             <li class="list-group-item">
                 <div class="sm:flex justify-between items-center">
-                    <div class="flex justify-center">
-                        {{ $demande->id }} - {{ $demande->date }} - {{ $demande->limitedate}}
+                    <div class="flex gap-6">
+                        <div class='min-w-40 text-center'>{{ $demande->user->name}}</div>
+                        <div class='min-w-40 text-center'>{{ $demande->type->name }}</div>
+                        <div class='min-w-40 text-center'>{{ $demande->date }}</div>
                     </div>
                     <div class="flex justify-center gap-2">
                     @can('demande-accept')

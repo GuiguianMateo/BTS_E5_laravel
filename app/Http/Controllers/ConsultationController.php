@@ -18,8 +18,9 @@ class ConsultationController extends Controller
     {
         $consultations = consultation::all();
         $demandes = Demande::all();
+        $users = user::all();
 
-        return view('consultation.index', compact('consultations','demandes'));
+        return view('consultation.index', compact('consultations','users'));
     }
 
     /**
