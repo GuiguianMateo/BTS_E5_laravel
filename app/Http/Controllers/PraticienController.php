@@ -17,20 +17,18 @@ class PraticienController extends Controller
      */
     public function index()
     {
-        // Effectuer une requête HTTP vers l'API pour récupérer les données
-        $response = Http::get('http://127.0.0.1:8000/api/praticien');
+        $praticiens = Praticien::all();
+        return view('praticien.index', compact('praticiens'));
 
-        // Vérifier si la requête a réussi
-        if ($response->successful()) {
-            // Récupérer les données de la réponse
-            $praticiens = $response->json();
+        // $response = Http::get('http://127.0.0.1:8000/api/praticien');
 
-            // Passer les données à la vue pour les afficher
-            return view('praticien.index', ['praticiens' => $praticiens]);
-        } else {
-            // En cas d'échec de la requête, gérer l'erreur
-            return back()->withError('Erreur lors de la récupération des données de l\'API');
-        }
+        // if ($response->successful()) {
+        //     $praticiens = $response->json();
+
+        //     return view('praticien.index', ['praticiens' => $praticiens]);
+        // } else {
+        //     return back()->withError('Erreur lors de la récupération des données de l\'API');
+        // }
     }
 
     /**

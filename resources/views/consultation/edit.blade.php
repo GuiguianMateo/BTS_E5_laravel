@@ -28,22 +28,20 @@
             @enderror
         </div>
 
-        @if(auth()->user()->client == 0)
-            <div class="mb-3">
-                <label for="user_id">Choisir Client</label>
-                <select class="form-select" name="user_id" id="user_id">
-                    <option value="{{ $consultation->user_id }}">{{ $consultation->user_id }}</option>
-                    @foreach($users as $user)
-                        @if($user->client == 1)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                        @endif
-                    @endforeach
-                </select>
-                @error('user_id')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
-            </div>
-        @endif
+        <div class="mb-3">
+            <label for="user_id">Choisir Client</label>
+            <select class="form-select" name="user_id" id="user_id">
+                <option value="{{ $consultation->user_id }}">{{ $consultation->user_id }}</option>
+                @foreach($users as $user)
+                    @if($user->client == 1)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endif
+                @endforeach
+            </select>
+            @error('user_id')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
 
         <div class="mb-3">
             <label for="label">Retard</label><br>

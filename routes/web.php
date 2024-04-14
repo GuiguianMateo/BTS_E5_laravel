@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\PraticienController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('client', UserController::class);
     Route::resource('consultation', ConsultationController::class);
     Route::resource('praticien', PraticienController::class);
+    Route::resource('demande', DemandeController::class);
+
+    Route::post('/demande/{id}/accept', [DemandeController::class, 'accept'])->name('demande.accept');
+
 });
 
 require __DIR__.'/auth.php';
