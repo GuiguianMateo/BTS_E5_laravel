@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container"><br>
-    {{-- @can('praticien-create') --}}
+    @can('praticien-create')
         <a href="{{ route('praticien.create') }}" class="btn btn-primary mb-3">Ajouter un Praticien</a>
-    {{-- @endcan --}}
+    @endcan
     <ul class="list-group">
         @forelse ($praticiens as $praticien)
         <li class="list-group-item">
@@ -13,16 +13,16 @@
                     {{ $praticien->id }} - {{ $praticien->name }} {{ $praticien->job }}
                 </div>
                 <div class="flex justify-center gap-2">
-                    {{-- @can('praticien-edit') --}}
+                    @can('praticien-edit')
                         <a href="{{ route('praticien.edit', $praticien->id) }}" class="btn btn-primary">Modifier</a>
-                    {{-- @endcan --}}
-                    {{-- @can('praticien-delete') --}}
+                    @endcan
+                    @can('praticien-delete')
                         <form action="{{ route('praticien.destroy', $praticien->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
-                    {{-- @endcan --}}
+                    @endcan
                     </div>
             </div>
         </li>

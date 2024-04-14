@@ -58,22 +58,27 @@ class DemandeController extends Controller
 
     public function accept(Request $request, Consultation $consultation, $id)
     {
-        // Trouver la demande correspondante dans la base de données en utilisant l'ID de la demande passé via l'URL
-        $demande = Demande::find($id);
 
-        $consultation = new Consultation();
-        $consultation->date = $demande->date;
-        $consultation->limitedate = $demande->limitedate;
-        $consultation->delay = $demande->delay;
-        $consultation->type_id = $demande->type_id;
-        $consultation->user_id = $demande->user_id;
-        $consultation->save();
+        if (Auth::user()->can('demande-accept'))
+        {
+            $demande = Demande::find($id);
 
-        // Supprimer la demande une fois qu'elle est acceptée
-        $demande->delete();
+            $consultation = new Consultation();
+            $consultation->date = $demande->date;
+            $consultation->limitedate = $demande->limitedate;
+            $consultation->delay = $demande->delay;
+            $consultation->type_id = $demande->type_id;
+            $consultation->user_id = $demande->user_id;
+            $consultation->save();
 
-        // Rediriger l'utilisateur vers une autre page, par exemple, la liste des demandes
-        return redirect()->route('demande.index');
+            // Supprimer la demande une fois qu'elle est acceptée
+            $demande->delete();
+
+            // Rediriger l'utilisateur vers une autre page, par exemple, la liste des demandes
+            return redirect()->route('demande.index');
+        }
+        abort(401);
+
     }
 
     /**
@@ -105,12 +110,12 @@ class DemandeController extends Controller
      */
     public function destroy(demande $demande)
     {
-        // if (Auth::user()->can('demande-delete'))
-        // {
+        if (Auth::user()->can('demande-reject'))
+        {
             $demande->delete();
             return redirect()->route('demande.index');
-        // }
-        // abort(401);
+        }
+        abort(401);
 
     }
 }

@@ -8,12 +8,12 @@
                 <div class="flex space-x-4 sm:space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <a class="inline-flex items-center px-1 pt-1 border-b-2 hover:border-indigo-400 text-xs sm:text-sm font-medium leading-5 text-gray-900 focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ route('client.index') }}">Client</a>
                     <a class="inline-flex items-center px-1 pt-1 border-b-2 hover:border-indigo-400 text-xs sm:text-sm font-medium leading-5 text-gray-900 focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ route('consultation.index') }}">Consultation</a>
-                    {{-- @can(...) --}}
+                    @can('praticien-acces')
                     <a class="inline-flex items-center px-1 pt-1 border-b-2 hover:border-indigo-400 text-xs sm:text-sm font-medium leading-5 text-gray-900 focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ route('praticien.index') }}">Praticien</a>
-                    {{-- @endcan --}}
-                    {{-- @can(...) --}}
+                    @endcan
+                    @can('demande-acces')
                     <a class="inline-flex items-center px-1 pt-1 border-b-2 hover:border-indigo-400 text-xs sm:text-sm font-medium leading-5 text-gray-900 focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ route('demande.index') }}">Demande</a>
-                    {{-- @endcan --}}
+                    @endcan
                 </div>
             </div>
 

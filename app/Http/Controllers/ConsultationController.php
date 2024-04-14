@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consultation;
+use App\Models\Demande;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,9 @@ class ConsultationController extends Controller
     public function index()
     {
         $consultations = consultation::all();
-        return view('consultation.index', compact('consultations'));
+        $demandes = Demande::all();
+
+        return view('consultation.index', compact('consultations','demandes'));
     }
 
     /**
@@ -76,8 +79,8 @@ class ConsultationController extends Controller
     public function update(Request $request, Consultation $consultation, Type $type)
     {
 
-        // if (Auth::user()->can('consultation-edit'))
-        // {
+        if (Auth::user()->can('consultation-edit'))
+        {
             $consultation = Consultation::find($consultation->id);
             $data = $request->all();
             $type = Type::find($data['type_id']);
@@ -92,8 +95,8 @@ class ConsultationController extends Controller
             $consultation->save();
 
             return redirect()->route('consultation.index');
-        // }
-        // abort(401);
+        }
+        abort(401);
     }
 
     /**
@@ -101,12 +104,12 @@ class ConsultationController extends Controller
      */
     public function destroy(Consultation $consultation)
     {
-        // if (Auth::user()->can('consultation-delete'))
-        // {
+        if (Auth::user()->can('consultation-delete'))
+        {
             $consultation->delete();
             return redirect()->route('consultation.index');
-        // }
-        // abort(401);
+        }
+        abort(401);
 
     }
 }

@@ -11,16 +11,16 @@
                         {{ $consultation->id }} - {{ $consultation->date }} - {{ $consultation->limitedate}}
                     </div>
                     <div class="flex justify-center gap-2">
-                    {{-- @can('consultation-edit') --}}
+                    @can('consultation-edit')
                         <a href="{{ route('consultation.edit', $consultation->id) }}" class="btn btn-primary">Modifier</a>
-                    {{-- @endcan --}}
-                    {{-- @can('consultation-delete') --}}
+                    @endcan
+                    @can('consultation-delete')
                         <form action="{{ route('consultation.destroy', $consultation->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
-                    {{-- @endcan --}}
+                    @endcan
                     </div>
 
                 </div>

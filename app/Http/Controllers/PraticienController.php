@@ -20,6 +20,8 @@ class PraticienController extends Controller
         $praticiens = Praticien::all();
         return view('praticien.index', compact('praticiens'));
 
+        // API
+
         // $response = Http::get('http://127.0.0.1:8000/api/praticien');
 
         // if ($response->successful()) {
@@ -46,8 +48,8 @@ class PraticienController extends Controller
      */
     public function store(Request $request)
     {
-        // if (Auth::user()->can('praticien-create'))
-        // {
+        if (Auth::user()->can('praticien-create'))
+        {
             $data = $request->all();
 
             $praticien = new Praticien;
@@ -59,8 +61,8 @@ class PraticienController extends Controller
 
             return redirect()->route('praticien.index');
 
-        // }
-        // abort(401);
+        }
+        abort(401);
     }
 
     /**
@@ -85,8 +87,8 @@ class PraticienController extends Controller
      */
     public function update(Request $request, praticien $praticien)
     {
-        // if (Auth::user()->can('praticien-edit'))
-        // {
+        if (Auth::user()->can('praticien-edit'))
+        {
             $praticien = Praticien::find($praticien->id);
             $data = $request->all();
 
@@ -97,8 +99,8 @@ class PraticienController extends Controller
             $praticien->save();
 
             return redirect()->route('praticien.index');
-        // }
-        // abort(401);
+        }
+        abort(401);
     }
 
     /**

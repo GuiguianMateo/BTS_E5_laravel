@@ -10,20 +10,20 @@
                         {{ $demande->id }} - {{ $demande->date }} - {{ $demande->limitedate}}
                     </div>
                     <div class="flex justify-center gap-2">
-                    {{-- @can('demande-accept') --}}
+                    @can('demande-accept')
                     <form action="{{ route('demande.accept', $demande->id) }}" method="post">
                         @csrf
                         @method('POST')
                         <button type="submit" class="btn btn-primary">Accepter</button>
                     </form>
-                    {{-- @endcan --}}
-                    {{-- @can('demande-reject') --}}
+                    @endcan
+                    @can('demande-reject')
                         <form action="{{ route('demande.destroy', $demande->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Refuser</button>
                         </form>
-                    {{-- @endcan --}}
+                    @endcan
                     </div>
                 </div>
             </li>
