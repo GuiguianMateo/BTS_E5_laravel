@@ -21,9 +21,9 @@
             <div class="mb-3">
                 <label for="type_id">Choisir un type de consultation</label>
                 <select class="form-select" name="type_id" id="type_id">
-                    <option value="type">Veuillez choisir un type</option>
+                    <option value="">Veuillez choisir un type</option>
                     @foreach ($types as $type)
-                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        <option value="{{ $type->id }}" data-type-id="{{ $type->id }}">{{ $type->name }}</option>
                     @endforeach
                 </select>
                 @error('type_id')
@@ -34,15 +34,30 @@
             <div class="mb-3">
                 <label for="praticien_id">Choisir Praticien</label>
                 <select class="form-select" name="praticien_id" id="praticien_id">
-                    <option value="praticien">Veuillez choisir un praticien</option>
-                    @foreach($praticiens as $praticien)
-                        <option value="{{ $praticien->id }}">{{ $praticien->name }}</option>
-                    @endforeach
+                    <option value="">Veuillez choisir un praticien</option>
+                    {{-- Les options seront ajoutées dynamiquement ici en utilisant JavaScript --}}
                 </select>
                 @error('praticien_id')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
+
+            <script>
+                document.getElementById('type_id').addEventListener('change', function() {
+                    var typeId = this.value;
+                    var selectPraticien = document.getElementById('praticien_id');
+                    selectPraticien.innerHTML = ''; // Efface les options précédentes
+                    var options = {!! json_encode($praticiens) !!};
+                    for (var i = 0; i < options.length; i++) {
+                        if (options[i].type_id == typeId) {
+                            var option = document.createElement('option');
+                            option.value = options[i].id;
+                            option.text = options[i].name;
+                            selectPraticien.add(option);
+                        }
+                    }
+                });
+            </script>
 
             <div class="mb-3">
                 <label for="user_id">Choisir Client</label>
@@ -99,10 +114,10 @@
                 @enderror
             </div>
 
-            <div class="mb-3 hidden">
+            <div class="mb-3">
                 <label for="praticien_id">Choisir Praticien</label>
                 <select class="form-select" name="praticien_id" id="praticien_id">
-                    <option value="{{ $consultations->praticien_id }}">{{ $consultations->praticien->name }}></option>
+                <option value="type">Veuillez choisir un praticien</option>
                     @foreach($praticiens as $praticien)
                         <option value="{{ $praticien->id }}">{{ $praticien->name }}</option>
                     @endforeach

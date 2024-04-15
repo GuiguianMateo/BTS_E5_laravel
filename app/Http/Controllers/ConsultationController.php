@@ -32,8 +32,18 @@ class ConsultationController extends Controller
         $consultations = consultation::all();
         $types = type::all();
         $users = user::all();
-        $praticiens = praticien::all();
-        return view('consultation.create', compact('consultations','types','users','praticiens'));
+
+        // Récupérer le type sélectionné dans la requête (s'il existe)
+        $selectedTypeId = request()->input('type_id');
+
+        // Si un type est sélectionné, récupérer uniquement les praticiens en relation avec ce type
+        if ($selectedTypeId) {
+            $praticiens = Praticien::where('type_id', $selectedTypeId)->get();
+        } else {
+            $praticiens = Praticien::all();
+        }
+
+        return view('consultation.create', compact('consultations', 'types', 'users', 'praticiens'));
     }
 
     /**

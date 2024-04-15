@@ -11,7 +11,7 @@ class Type extends Model
 
     function consultation()
     {
-        return $this->belongsTo(consultation::class);
+        return $this->hasMany(consultation::class);
     }
 
 
