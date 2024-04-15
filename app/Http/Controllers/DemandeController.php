@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Consultation;
 use App\Models\Demande;
+use App\Models\praticien;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -38,9 +39,7 @@ class DemandeController extends Controller
     {
         $data = $request->all();
 
-
         $demande = new demande;
-        $type = Type::find($data['type_id']);
 
         $demande->date = $data['date'];
 
@@ -49,6 +48,7 @@ class DemandeController extends Controller
         $demande->delay = $data['delay'];
         $demande->type_id = $data['type_id'];
         $demande->user_id = $data['user_id'];
+        $demande->praticien_id = $data['praticien_id'];
         $demande->save();
 
 
@@ -69,6 +69,7 @@ class DemandeController extends Controller
             $consultation->delay = $demande->delay;
             $consultation->type_id = $demande->type_id;
             $consultation->user_id = $demande->user_id;
+            $consultation->praticien_id = $demande->praticien_id;
             $consultation->save();
 
             // Supprimer la demande une fois qu'elle est acceptée

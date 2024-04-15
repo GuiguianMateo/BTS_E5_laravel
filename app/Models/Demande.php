@@ -18,4 +18,9 @@ class Demande extends Model
     {
         return $this->belongsTo(type::class);
     }
+
+    function praticien()
+    {
+        return $this->belongsTo(praticien::class);
+    }
 }

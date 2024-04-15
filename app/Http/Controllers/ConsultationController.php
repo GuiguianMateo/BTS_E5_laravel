@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Consultation;
 use App\Models\Demande;
+use App\Models\praticien;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -31,7 +32,8 @@ class ConsultationController extends Controller
         $consultations = consultation::all();
         $types = type::all();
         $users = user::all();
-        return view('consultation.create', compact('consultations','types','users'));
+        $praticiens = praticien::all();
+        return view('consultation.create', compact('consultations','types','users','praticiens'));
     }
 
     /**
@@ -51,6 +53,7 @@ class ConsultationController extends Controller
         $consultation->delay = $data['delay'];
         $consultation->type_id = $data['type_id'];
         $consultation->user_id = $data['user_id'];
+        $consultation->praticien_id = $data['praticien_id'];
         $consultation->save();
 
         return redirect()->route('consultation.index');

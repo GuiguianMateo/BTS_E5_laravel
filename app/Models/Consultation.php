@@ -19,4 +19,8 @@ class Consultation extends Model
         return $this->belongsTo(user::class);
     }
 
+    function praticien()
+    {
+        return $this->belongsTo(praticien::class);
+    }
 }

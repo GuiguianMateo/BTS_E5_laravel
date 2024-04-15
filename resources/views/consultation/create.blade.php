@@ -31,20 +31,33 @@
                 @enderror
             </div>
 
-                <div class="mb-3">
-                    <label for="user_id">Choisir Client</label>
-                    <select class="form-select" name="user_id" id="user_id">
-                        <option value="type">Veuillez choisir un client</option>
-                        @foreach($users as $user)
-                            @if($user->client == 1)
-                                <option value="{{ $user->id }}">{{ $user->name }}</option>
-                            @endif
-                        @endforeach
-                    </select>
-                    @error('user_id')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                </div>
+            <div class="mb-3">
+                <label for="praticien_id">Choisir Praticien</label>
+                <select class="form-select" name="praticien_id" id="praticien_id">
+                    <option value="praticien">Veuillez choisir un praticien</option>
+                    @foreach($praticiens as $praticien)
+                        <option value="{{ $praticien->id }}">{{ $praticien->name }}</option>
+                    @endforeach
+                </select>
+                @error('praticien_id')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="user_id">Choisir Client</label>
+                <select class="form-select" name="user_id" id="user_id">
+                    <option value="type">Veuillez choisir un client</option>
+                    @foreach($users as $user)
+                        @if($user->client == 1)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endif
+                    @endforeach
+                </select>
+                @error('user_id')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
 
             <div class="hidden">
                 <label for="delay" class="form-label">retard</label>
@@ -82,6 +95,19 @@
                     @endforeach
                 </select>
                 @error('type_id')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-3 hidden">
+                <label for="praticien_id">Choisir Praticien</label>
+                <select class="form-select" name="praticien_id" id="praticien_id">
+                    <option value="{{ $consultations->praticien_id }}">{{ $consultations->praticien->name }}></option>
+                    @foreach($praticiens as $praticien)
+                        <option value="{{ $praticien->id }}">{{ $praticien->name }}</option>
+                    @endforeach
+                </select>
+                @error('praticien_id')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
