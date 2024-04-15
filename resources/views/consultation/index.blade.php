@@ -10,7 +10,7 @@
                     <div class="flex gap-6">
                         <div class='min-w-40 text-center'>{{ $consultation->user->name}}</div>
                         <div class='min-w-40 text-center'>{{ $consultation->type->name }}</div>
-                        <div class='min-w-40 text-center'>{{ $consultation->limitedate }}</div>
+                        <div class='min-w-40 text-center'>{{ $consultation->deadline }}</div>
                     </div>
                     <div class="flex justify-center gap-2">
                     @can('consultation-edit')

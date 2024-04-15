@@ -44,7 +44,7 @@ class DemandeController extends Controller
 
         $demande->date = $data['date'];
 
-        $demande->limitedate = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
+        $demande->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
 
         $demande->delay = $data['delay'];
         $demande->type_id = $data['type_id'];
@@ -65,7 +65,7 @@ class DemandeController extends Controller
 
             $consultation = new Consultation();
             $consultation->date = $demande->date;
-            $consultation->limitedate = $demande->limitedate;
+            $consultation->deadline = $demande->deadline;
             $consultation->delay = $demande->delay;
             $consultation->type_id = $demande->type_id;
             $consultation->user_id = $demande->user_id;
