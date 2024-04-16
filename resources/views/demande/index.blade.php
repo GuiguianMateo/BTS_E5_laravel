@@ -10,8 +10,6 @@
                         <div class='min-w-40 text-center'>{{ $demande->user->name}}</div>
                         <div class='min-w-40 text-center'>{{ $demande->type->name }}</div>
                         <div class='min-w-40 text-center'>{{ $demande->date }}</div>
-                        <div class='min-w-40 text-center'>{{ $consultation->praticien->name }}</div>
-
                     </div>
                     <div class="flex justify-center gap-2">
                     @can('demande-accept')

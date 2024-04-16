@@ -84,7 +84,8 @@ class ConsultationController extends Controller
     {
         $types = type::all();
         $users = user::all();
-        return view('consultation.edit', compact('consultation','types','users'));
+        $praticiens = praticien::all();
+        return view('consultation.edit', compact('consultation','types','users','praticiens'));
     }
 
     /**

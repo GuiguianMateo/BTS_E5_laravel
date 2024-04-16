@@ -30,6 +30,34 @@
         </div>
 
         <div class="mb-3">
+            <label for="praticien_id">Choisir Praticien</label>
+            <select class="form-select" name="praticien_id" id="praticien_id">
+                <option value="{{ $praticiens->id }}">{{ $praticiens->name }}</option>
+                {{-- Les options seront ajoutées dynamiquement ici en utilisant JavaScript --}}
+            </select>
+            @error('praticien_id')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <script>
+            document.getElementById('type_id').addEventListener('change', function() {
+                var typeId = this.value;
+                var selectPraticien = document.getElementById('praticien_id');
+                selectPraticien.innerHTML = ''; // Efface les options précédentes
+                var options = {!! json_encode($praticiens) !!};
+                for (var i = 0; i < options.length; i++) {
+                    if (options[i].type_id == typeId) {
+                        var option = document.createElement('option');
+                        option.value = options[i].id;
+                        option.text = options[i].name;
+                        selectPraticien.add(option);
+                    }
+                }
+            });
+        </script>
+
+        <div class="mb-3">
             <label for="user_id">Choisir Client</label>
             <select class="form-select" name="user_id" id="user_id">
                 <option value="{{ $consultation->user_id }}">{{ $consultation->user->name }}</option>

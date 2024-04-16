@@ -40,7 +40,7 @@ class DemandeController extends Controller
         $data = $request->all();
 
         $demande = new demande;
-
+        $type = Type::find($data['type_id']);
         $demande->date = $data['date'];
 
         $demande->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
