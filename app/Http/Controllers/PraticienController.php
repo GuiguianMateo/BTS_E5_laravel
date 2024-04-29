@@ -17,20 +17,14 @@ class PraticienController extends Controller
      */
     public function index()
     {
-        $praticiens = Praticien::all();
-        return view('praticien.index', compact('praticiens'));
+        if (Auth::user()->can('praticien-index'))
+        {
+            $praticiens = Praticien::all();
+            return view('praticien.index', compact('praticiens'));
+        }
+        abort(401);
 
-        // API
 
-        // $response = Http::get('http://127.0.0.1:8000/api/praticien');
-
-        // if ($response->successful()) {
-        //     $praticiens = $response->json();
-
-        //     return view('praticien.index', ['praticiens' => $praticiens]);
-        // } else {
-        //     return back()->withError('Erreur lors de la récupération des données de l\'API');
-        // }
     }
 
     /**
@@ -38,9 +32,14 @@ class PraticienController extends Controller
      */
     public function create()
     {
-        $praticiens = Praticien::all();
-        $types = type::all();
-        return view('praticien.create', compact('praticiens','types'));
+        if (Auth::user()->can('praticien-create'))
+        {
+            $praticiens = Praticien::all();
+            $types = type::all();
+            return view('praticien.create', compact('praticiens','types'));
+        }
+        abort(401);
+
     }
 
     /**
@@ -78,8 +77,13 @@ class PraticienController extends Controller
      */
     public function edit(praticien $praticien)
     {
-        $types = type::all();
-        return view('praticien.edit', compact('praticien','types'));
+        if (Auth::user()->can('praticien-edit'))
+        {
+            $types = type::all();
+            return view('praticien.edit', compact('praticien','types'));
+        }
+        abort(401);
+
     }
 
     /**
@@ -89,7 +93,7 @@ class PraticienController extends Controller
     {
         if (Auth::user()->can('praticien-edit'))
         {
-            $praticien = Praticien::find($praticien->id);
+            $praticien = Praticien::findOrFail($praticien->id);
             $data = $request->all();
 
             $praticien->name = $data['name'];

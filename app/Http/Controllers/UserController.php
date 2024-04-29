@@ -39,9 +39,14 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
-        return view('user.show', compact('user'));
+        if (Auth::user()->id === $user->id)
+        {
+            return view('user.show', compact('user'));
+        }
+        abort(401);
+
     }
 
     /**

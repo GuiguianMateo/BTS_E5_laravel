@@ -26,10 +26,7 @@ class DemandeController extends Controller
      */
     public function create()
     {
-        // $demandes = demande::all();
-        // $types = type::all();
-        // $users = user::all();
-        // return view('demande.create', compact('demandes','types','users'));
+        //
     }
 
     /**
@@ -37,23 +34,26 @@ class DemandeController extends Controller
      */
     public function store(Request $request, Type $type)
     {
-        $data = $request->all();
+        if (Auth::user()->can('demande-create'))
+        {
+            $data = $request->all();
 
-        $demande = new demande;
-        $type = Type::find($data['type_id']);
-        $demande->date = $data['date'];
+            $demande = new demande;
+            $type = Type::findOrFail($data['type_id']);
+            $demande->date = $data['date'];
 
-        $demande->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
+            $demande->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
 
-        $demande->delay = $data['delay'];
-        $demande->type_id = $data['type_id'];
-        $demande->user_id = $data['user_id'];
-        $demande->praticien_id = $data['praticien_id'];
-        $demande->save();
+            $demande->delay = $data['delay'];
+            $demande->type_id = $data['type_id'];
+            $demande->user_id = $data['user_id'];
+            $demande->praticien_id = $data['praticien_id'];
+            $demande->save();
 
+            return redirect()->route('consultation.index');
+        }
+        abort(401);
 
-
-        return redirect()->route('consultation.index');
     }
 
     public function accept(Request $request, Consultation $consultation, $id)
@@ -61,7 +61,7 @@ class DemandeController extends Controller
 
         if (Auth::user()->can('demande-accept'))
         {
-            $demande = Demande::find($id);
+            $demande = Demande::findOrFail($id);
 
             $consultation = new Consultation();
             $consultation->date = $demande->date;
@@ -72,10 +72,8 @@ class DemandeController extends Controller
             $consultation->praticien_id = $demande->praticien_id;
             $consultation->save();
 
-            // Supprimer la demande une fois qu'elle est acceptée
             $demande->delete();
 
-            // Rediriger l'utilisateur vers une autre page, par exemple, la liste des demandes
             return redirect()->route('demande.index');
         }
         abort(401);
