@@ -17,17 +17,22 @@ class DemandeController extends Controller
      */
     public function index()
     {
-        $demandes = demande::all();
-        return view('demande.index', compact('demandes'));
+        if (Auth::user()->can('demande-acces'))
+        {
+            $demandes = demande::all();
+            return view('demande.index', compact('demandes'));
+        }
+        abort(401);
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -83,26 +88,26 @@ class DemandeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(demande $demande)
-    {
-        //
-    }
+    // public function show(demande $demande)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(demande $demande)
-    {
+    // public function edit(demande $demande)
+    // {
 
-    }
+    // }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, demande $demande, Type $type)
-    {
+    // public function update(Request $request, demande $demande, Type $type)
+    // {
 
-    }
+    // }
 
     /**
      * Remove the specified resource from storage.

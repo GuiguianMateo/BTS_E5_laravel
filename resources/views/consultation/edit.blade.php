@@ -32,8 +32,11 @@
         <div class="mb-3">
             <label for="praticien_id">Choisir Praticien</label>
             <select class="form-select" name="praticien_id" id="praticien_id">
-                <option value="{{ $praticiens->id }}">{{ $praticiens->name }}</option>
-                {{-- Les options seront ajoutées dynamiquement ici en utilisant JavaScript --}}
+                @foreach ($praticiens as $praticien)
+                    <option value="{{ $praticien->id }}" {{ $praticien->id == $consultation->praticien_id ? 'selected' : '' }}>
+                        {{ $praticien->name }}
+                    </option>
+                @endforeach
             </select>
             @error('praticien_id')
                 <p class="text-danger">{{ $message }}</p>

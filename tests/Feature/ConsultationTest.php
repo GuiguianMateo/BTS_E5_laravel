@@ -90,6 +90,7 @@ class ConsultationTest extends TestCase
     // {
     //     $user = User::factory()->create();
     //     Bouncer::assign('employe')->to($user);
+    //     Bouncer::allow('employe')->to('demande-create');
     //     Bouncer::allow('employe')->to('consultation-create');
     //     Bouncer::refresh();
 
@@ -113,64 +114,46 @@ class ConsultationTest extends TestCase
     // }
 
 
-    public function test_user_with_role_can_view_consultation_show() : void
+    public function test_user_with_role_can_edit_consultation() : void
     {
         $user = User::factory()->create();
         Bouncer::assign('employe')->to($user);
-        Bouncer::allow('employe')->to('consultation-show');
+        Bouncer::allow('employe')->to('consultation-edit');
         Bouncer::refresh();
 
         $consultation = Consultation::factory()->create();
 
         $response = $this
             ->actingAs($user)
-            ->get("/consultation/{$consultation->id}");
+            ->get("/consultation/{$consultation->id}/edit");
 
         $response->assertStatus(200);
     }
 
-    // public function test_user_with_role_can_edit_consultation() : void
-    // {
-    //     $user = User::factory()->create();
-    //     Bouncer::assign('employe')->to($user);
-    //     Bouncer::allow('employe')->to('consultation-edit');
-    //     Bouncer::refresh();
+    public function test_user_with_role_can_update_consultation() : void
+    {
+        $user = User::factory()->create();
+        Bouncer::assign('employe')->to($user);
+        Bouncer::allow('employe')->to('consultation-edit');
+        Bouncer::refresh();
 
-    //     $consultation = Consultation::factory()->create();
+        $consultation = Consultation::factory()->create();
+        $type = Type::factory()->create();
+        $praticien = Praticien::factory()->create();
 
-    //     $response = $this
-    //         ->actingAs($user)
-    //         ->get("/consultation/{$consultation->id}/edit");
+        $response = $this
+            ->actingAs($user)
+            ->get("/consultation/{$consultation->id}/edit", [
+                'date' => '2022-12-22',
+                'deadline' => '2023-12-22',
+                'delay' => '1',
+                'type_id' => $type->id,
+                'user_id' => $user->id,
+                'praticien_id' => $praticien->id,
+            ]);
 
-    //     $response->assertStatus(200);
-    // }
-
-    // public function test_user_with_role_can_update_consultation() : void
-    // {
-    //     $user = User::factory()->create();
-    //     Bouncer::assign('employe')->to($user);
-    //     Bouncer::allow('employe')->to('consultation-edit');
-    //     Bouncer::refresh();
-
-    //     $consultation = Consultation::factory()->create();
-    //     $type = Type::factory()->create();
-    //     $praticien = Praticien::factory()->create();
-    //     $user = User::factory()->create();
-
-    //     $response = $this
-    //         ->actingAs($user)
-    //         ->patch("/consultation/{$consultation->id}", [
-    //             'date' => '2022-12-22',
-    //             'deadline' => '2023-12-22',
-    //             'delay' => '1',
-    //             'type_id' => $type->id,
-    //             'user_id' => $user->id,
-    //             'praticien_id' => $praticien->id,
-    //         ]);
-
-    //     $response->assertSessionHasNoErrors();
-    //     $response->assertRedirect('/consultation');
-    // }
+        $response->assertStatus(200);
+    }
 
 
     public function test_user_with_role_can_delete_consultation() : void

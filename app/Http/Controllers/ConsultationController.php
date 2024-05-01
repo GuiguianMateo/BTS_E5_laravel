@@ -82,10 +82,10 @@ class ConsultationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Consultation $consultation)
-    {
-        //
-    }
+    // public function show(Consultation $consultation)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.

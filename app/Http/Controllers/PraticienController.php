@@ -17,7 +17,7 @@ class PraticienController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->can('praticien-index'))
+        if (Auth::user()->can('praticien-acces'))
         {
             $praticiens = Praticien::all();
             return view('praticien.index', compact('praticiens'));
@@ -67,10 +67,10 @@ class PraticienController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(praticien $praticien)
-    {
-        //
-    }
+    // public function show(praticien $praticien)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
