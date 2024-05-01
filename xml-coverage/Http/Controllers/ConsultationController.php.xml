@@ -2,19 +2,18 @@
 <phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
   <file name="ConsultationController.php" path="\Http\Controllers">
     <totals>
-      <lines total="145" comments="24" code="121" executable="50" executed="20" percent="40.00"/>
-      <methods count="7" tested="3" percent="42.86"/>
+      <lines total="145" comments="27" code="118" executable="49" executed="36" percent="73.47"/>
+      <methods count="6" tested="4" percent="66.67"/>
       <functions count="0" tested="0" percent="0"/>
       <classes count="1" tested="0" percent="0.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\Http\Controllers\ConsultationController" start="13" executable="50" executed="20" crap="49.5">
+    <class name="App\Http\Controllers\ConsultationController" start="13" executable="49" executed="36" crap="14.69">
       <namespace name="App\Http\Controllers"/>
       <method name="index" signature="index()" start="18" end="25" crap="1" executable="4" executed="4" coverage="100"/>
       <method name="create" signature="create()" start="30" end="52" crap="3.01" executable="10" executed="9" coverage="90"/>
-      <method name="store" signature="store(Illuminate\Http\Request $request, App\Models\Type $type)" start="57" end="80" crap="6" executable="13" executed="0" coverage="0"/>
-      <method name="show" signature="show(App\Models\Consultation $consultation)" start="85" end="88" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="edit" signature="edit(App\Models\Consultation $consultation)" start="93" end="104" crap="3.19" executable="6" executed="2" coverage="33.333333333333"/>
+      <method name="store" signature="store(Illuminate\Http\Request $request, App\Models\Type $type)" start="57" end="80" crap="2" executable="13" executed="13" coverage="100"/>
+      <method name="edit" signature="edit(App\Models\Consultation $consultation)" start="93" end="104" crap="2" executable="6" executed="6" coverage="100"/>
       <method name="update" signature="update(Illuminate\Http\Request $request, App\Models\Consultation $consultation, App\Models\Type $type)" start="109" end="130" crap="6" executable="12" executed="0" coverage="0"/>
       <method name="destroy" signature="destroy(App\Models\Consultation $consultation)" start="135" end="143" crap="2" executable="4" executed="4" coverage="100"/>
     </class>
@@ -59,14 +58,71 @@
       <line nr="50">
         <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_create_consultation"/>
       </line>
-      <line nr="88">
-        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_view_consultation_show"/>
+      <line nr="59">
+        <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_store_consultation"/>
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="61">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="63">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="64">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="66">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="68">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="70">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="71">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="72">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="73">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="74">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="76">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+      </line>
+      <line nr="78">
+        <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_store_consultation"/>
       </line>
       <line nr="95">
         <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_edit_consultation"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_update_consultation"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_edit_consultation"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_update_consultation"/>
+      </line>
+      <line nr="97">
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_edit_consultation"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_update_consultation"/>
+      </line>
+      <line nr="98">
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_edit_consultation"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_update_consultation"/>
+      </line>
+      <line nr="99">
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_edit_consultation"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_update_consultation"/>
+      </line>
+      <line nr="100">
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_edit_consultation"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_update_consultation"/>
       </line>
       <line nr="102">
         <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_edit_consultation"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_update_consultation"/>
       </line>
       <line nr="137">
         <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_delete_consultation"/>
@@ -705,28 +761,19 @@
       </line>
       <line no="85">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">show</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">Consultation</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$consultation</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMENT">// public function show(Consultation $consultation)</token>
       </line>
       <line no="86">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
+        <token name="T_COMMENT">// {</token>
       </line>
       <line no="87">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_COMMENT">//</token>
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">//     //</token>
       </line>
       <line no="88">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_COMMENT">// }</token>
       </line>
       <line no="89"/>
       <line no="90">

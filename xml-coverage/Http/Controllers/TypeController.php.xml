@@ -2,21 +2,14 @@
 <phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
   <file name="TypeController.php" path="\Http\Controllers">
     <totals>
-      <lines total="66" comments="28" code="38" executable="7" executed="0" percent="0.00"/>
-      <methods count="7" tested="0" percent="0.00"/>
+      <lines total="66" comments="49" code="17" executable="0" executed="0" percent="0"/>
+      <methods count="0" tested="0" percent="0"/>
       <functions count="0" tested="0" percent="0"/>
-      <classes count="1" tested="0" percent="0.00"/>
+      <classes count="0" tested="0" percent="0"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\Http\Controllers\TypeController" start="8" executable="7" executed="0" crap="56">
+    <class name="App\Http\Controllers\TypeController" start="8" executable="0" executed="0" crap="0">
       <namespace name="App\Http\Controllers"/>
-      <method name="index" signature="index()" start="13" end="16" crap="2" executable="1" executed="0" coverage="0"/>
-      <method name="create" signature="create()" start="21" end="24" crap="2" executable="1" executed="0" coverage="0"/>
-      <method name="store" signature="store(Illuminate\Http\Request $request)" start="29" end="32" crap="2" executable="1" executed="0" coverage="0"/>
-      <method name="show" signature="show(App\Models\Type $type)" start="37" end="40" crap="2" executable="1" executed="0" coverage="0"/>
-      <method name="edit" signature="edit(App\Models\Type $type)" start="45" end="48" crap="2" executable="1" executed="0" coverage="0"/>
-      <method name="update" signature="update(Illuminate\Http\Request $request, App\Models\Type $type)" start="53" end="56" crap="2" executable="1" executed="0" coverage="0"/>
-      <method name="destroy" signature="destroy(App\Models\Type $type)" start="61" end="64" crap="2" executable="1" executed="0" coverage="0"/>
     </class>
     <source>
       <line no="1">
@@ -67,25 +60,19 @@
       </line>
       <line no="13">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">index</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMENT">// public function index()</token>
       </line>
       <line no="14">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
+        <token name="T_COMMENT">// {</token>
       </line>
       <line no="15">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_COMMENT">//</token>
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">//     //</token>
       </line>
       <line no="16">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_COMMENT">// }</token>
       </line>
       <line no="17"/>
       <line no="18">
@@ -100,25 +87,19 @@
       </line>
       <line no="21">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">create</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMENT">// public function create()</token>
       </line>
       <line no="22">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
+        <token name="T_COMMENT">// {</token>
       </line>
       <line no="23">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_COMMENT">//</token>
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">//     //</token>
       </line>
       <line no="24">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_COMMENT">// }</token>
       </line>
       <line no="25"/>
       <line no="26">
@@ -133,28 +114,19 @@
       </line>
       <line no="29">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">store</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">Request</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$request</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMENT">// public function store(Request $request)</token>
       </line>
       <line no="30">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
+        <token name="T_COMMENT">// {</token>
       </line>
       <line no="31">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_COMMENT">//</token>
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">//     //</token>
       </line>
       <line no="32">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_COMMENT">// }</token>
       </line>
       <line no="33"/>
       <line no="34">
@@ -169,28 +141,19 @@
       </line>
       <line no="37">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">show</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">Type</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$type</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMENT">// public function show(Type $type)</token>
       </line>
       <line no="38">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
+        <token name="T_COMMENT">// {</token>
       </line>
       <line no="39">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_COMMENT">//</token>
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">//     //</token>
       </line>
       <line no="40">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_COMMENT">// }</token>
       </line>
       <line no="41"/>
       <line no="42">
@@ -205,28 +168,19 @@
       </line>
       <line no="45">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">edit</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">Type</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$type</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMENT">// public function edit(Type $type)</token>
       </line>
       <line no="46">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
+        <token name="T_COMMENT">// {</token>
       </line>
       <line no="47">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_COMMENT">//</token>
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">//     //</token>
       </line>
       <line no="48">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_COMMENT">// }</token>
       </line>
       <line no="49"/>
       <line no="50">
@@ -241,33 +195,19 @@
       </line>
       <line no="53">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">update</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">Request</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$request</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">Type</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$type</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMENT">// public function update(Request $request, Type $type)</token>
       </line>
       <line no="54">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
+        <token name="T_COMMENT">// {</token>
       </line>
       <line no="55">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_COMMENT">//</token>
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">//     //</token>
       </line>
       <line no="56">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_COMMENT">// }</token>
       </line>
       <line no="57"/>
       <line no="58">
@@ -282,28 +222,19 @@
       </line>
       <line no="61">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">destroy</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">Type</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$type</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMENT">// public function destroy(Type $type)</token>
       </line>
       <line no="62">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
+        <token name="T_COMMENT">// {</token>
       </line>
       <line no="63">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_COMMENT">//</token>
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">//     //</token>
       </line>
       <line no="64">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_COMMENT">// }</token>
       </line>
       <line no="65">
         <token name="T_CLOSE_CURLY">}</token>

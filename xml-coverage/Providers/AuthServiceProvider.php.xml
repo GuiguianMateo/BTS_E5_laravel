@@ -14,6 +14,7 @@
     </class>
     <coverage>
       <line nr="25">
+        <covered by="Tests\Feature\APITest::test_licence_API_index_method_returns_correct_view"/>
         <covered by="Tests\Feature\Auth\AuthenticationTest::test_login_screen_can_be_rendered"/>
         <covered by="Tests\Feature\Auth\AuthenticationTest::test_users_can_authenticate_using_the_login_screen"/>
         <covered by="Tests\Feature\Auth\AuthenticationTest::test_users_can_not_authenticate_with_invalid_password"/>
@@ -34,11 +35,30 @@
         <covered by="Tests\Feature\Auth\RegistrationTest::test_new_users_can_register"/>
         <covered by="Tests\Feature\ConsultationTest::test_user_without_role_can_view_consultation_index"/>
         <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_create_consultation"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_store_consultation"/>
         <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_edit_consultation"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_update_consultation"/>
         <covered by="Tests\Feature\ConsultationTest::test_user_without_role_cant_delete_consultation"/>
         <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_create_consultation"/>
-        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_view_consultation_show"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_edit_consultation"/>
+        <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_update_consultation"/>
         <covered by="Tests\Feature\ConsultationTest::test_user_with_role_can_delete_consultation"/>
+        <covered by="Tests\Feature\DemandeTest::test_user_without_role_can_view_demande_index"/>
+        <covered by="Tests\Feature\DemandeTest::test_user_without_role_cant_reject_demande"/>
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_view_demande_index"/>
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_reject_demande"/>
+        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_view_praticien_index"/>
+        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_create_praticien"/>
+        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_store_praticien"/>
+        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_edit_praticien"/>
+        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_update_praticien"/>
+        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_delete_praticien"/>
+        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_view_praticien_index"/>
+        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_create_praticien"/>
+        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_edit_praticien"/>
+        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_update_praticien"/>
+        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_delete_praticien"/>
         <covered by="Tests\Feature\ProfileTest::test_profile_page_is_displayed"/>
         <covered by="Tests\Feature\ProfileTest::test_profile_information_can_be_updated"/>
         <covered by="Tests\Feature\ProfileTest::test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged"/>

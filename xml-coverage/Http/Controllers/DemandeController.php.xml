@@ -2,23 +2,50 @@
 <phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
   <file name="DemandeController.php" path="\Http\Controllers">
     <totals>
-      <lines total="121" comments="23" code="98" executable="36" executed="0" percent="0.00"/>
-      <methods count="8" tested="0" percent="0.00"/>
+      <lines total="126" comments="35" code="91" executable="34" executed="8" percent="23.53"/>
+      <methods count="4" tested="2" percent="50.00"/>
       <functions count="0" tested="0" percent="0"/>
       <classes count="1" tested="0" percent="0.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\Http\Controllers\DemandeController" start="13" executable="36" executed="0" crap="132">
+    <class name="App\Http\Controllers\DemandeController" start="13" executable="34" executed="8" crap="36.62">
       <namespace name="App\Http\Controllers"/>
-      <method name="index" signature="index()" start="18" end="22" crap="2" executable="2" executed="0" coverage="0"/>
-      <method name="create" signature="create()" start="27" end="30" crap="2" executable="1" executed="0" coverage="0"/>
-      <method name="store" signature="store(Illuminate\Http\Request $request, App\Models\Type $type)" start="35" end="57" crap="6" executable="13" executed="0" coverage="0"/>
-      <method name="accept" signature="accept(Illuminate\Http\Request $request, App\Models\Consultation $consultation, $id)" start="59" end="81" crap="6" executable="13" executed="0" coverage="0"/>
-      <method name="show" signature="show(App\Models\Demande $demande)" start="86" end="89" crap="2" executable="1" executed="0" coverage="0"/>
-      <method name="edit" signature="edit(App\Models\Demande $demande)" start="94" end="97" crap="2" executable="1" executed="0" coverage="0"/>
-      <method name="update" signature="update(Illuminate\Http\Request $request, App\Models\Demande $demande, App\Models\Type $type)" start="102" end="105" crap="2" executable="1" executed="0" coverage="0"/>
-      <method name="destroy" signature="destroy(App\Models\Demande $demande)" start="110" end="119" crap="6" executable="4" executed="0" coverage="0"/>
+      <method name="index" signature="index()" start="18" end="27" crap="2" executable="4" executed="4" coverage="100"/>
+      <method name="store" signature="store(Illuminate\Http\Request $request, App\Models\Type $type)" start="40" end="62" crap="6" executable="13" executed="0" coverage="0"/>
+      <method name="accept" signature="accept(Illuminate\Http\Request $request, App\Models\Consultation $consultation, $id)" start="64" end="86" crap="6" executable="13" executed="0" coverage="0"/>
+      <method name="destroy" signature="destroy(App\Models\Demande $demande)" start="115" end="124" crap="2" executable="4" executed="4" coverage="100"/>
     </class>
+    <coverage>
+      <line nr="20">
+        <covered by="Tests\Feature\DemandeTest::test_user_without_role_can_view_demande_index"/>
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_view_demande_index"/>
+      </line>
+      <line nr="22">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_view_demande_index"/>
+      </line>
+      <line nr="23">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_view_demande_index"/>
+      </line>
+      <line nr="25">
+        <covered by="Tests\Feature\DemandeTest::test_user_without_role_can_view_demande_index"/>
+      </line>
+      <line nr="117">
+        <covered by="Tests\Feature\DemandeTest::test_user_without_role_cant_reject_demande"/>
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_reject_demande"/>
+      </line>
+      <line nr="119">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_reject_demande"/>
+      </line>
+      <line nr="120">
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_accept_demande"/>
+        <covered by="Tests\Feature\DemandeTest::test_user_with_role_can_reject_demande"/>
+      </line>
+      <line nr="122">
+        <covered by="Tests\Feature\DemandeTest::test_user_without_role_cant_reject_demande"/>
+      </line>
+    </coverage>
     <source>
       <line no="1">
         <token name="T_OPEN_TAG">&lt;?php</token>
@@ -112,6 +139,27 @@
       </line>
       <line no="20">
         <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">Auth</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">user</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">can</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'demande-acces'</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="21">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="22">
+        <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demandes</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_EQUAL">=</token>
@@ -123,8 +171,8 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="21">
-        <token name="T_WHITESPACE">        </token>
+      <line no="23">
+        <token name="T_WHITESPACE">            </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">view</token>
@@ -139,55 +187,62 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="22">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="23"/>
       <line no="24">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_DOC_COMMENT">/**</token>
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
       </line>
       <line no="25">
-        <token name="T_DOC_COMMENT">     * Show the form for creating a new resource.</token>
-      </line>
-      <line no="26">
-        <token name="T_DOC_COMMENT">     */</token>
-      </line>
-      <line no="27">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">create</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="28">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="29">
         <token name="T_WHITESPACE">        </token>
-        <token name="T_COMMENT">//</token>
+        <token name="T_STRING">abort</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_LNUMBER">401</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="30">
+      <line no="26"/>
+      <line no="27">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="31"/>
-      <line no="32">
+      <line no="28"/>
+      <line no="29">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="33">
-        <token name="T_DOC_COMMENT">     * Store a newly created resource in storage.</token>
+      <line no="30">
+        <token name="T_DOC_COMMENT">     * Show the form for creating a new resource.</token>
       </line>
-      <line no="34">
+      <line no="31">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
+      <line no="32">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">// public function create()</token>
+      </line>
+      <line no="33">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">// {</token>
+      </line>
+      <line no="34">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">//     //</token>
+      </line>
       <line no="35">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">// }</token>
+      </line>
+      <line no="36"/>
+      <line no="37">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="38">
+        <token name="T_DOC_COMMENT">     * Store a newly created resource in storage.</token>
+      </line>
+      <line no="39">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="40">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -205,11 +260,11 @@
         <token name="T_VARIABLE">$type</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="36">
+      <line no="41">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="37">
+      <line no="42">
         <token name="T_WHITESPACE">        </token>
         <token name="T_IF">if</token>
         <token name="T_WHITESPACE"> </token>
@@ -226,11 +281,11 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="38">
+      <line no="43">
         <token name="T_WHITESPACE">        </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="39">
+      <line no="44">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_WHITESPACE"> </token>
@@ -243,8 +298,8 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="40"/>
-      <line no="41">
+      <line no="45"/>
+      <line no="46">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demande</token>
         <token name="T_WHITESPACE"> </token>
@@ -255,7 +310,7 @@
         <token name="T_STRING">demande</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="42">
+      <line no="47">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$type</token>
         <token name="T_WHITESPACE"> </token>
@@ -272,7 +327,7 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="43">
+      <line no="48">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demande</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -286,8 +341,8 @@
         <token name="T_CLOSE_SQUARE">]</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="44"/>
-      <line no="45">
+      <line no="49"/>
+      <line no="50">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demande</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -324,8 +379,8 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="46"/>
-      <line no="47">
+      <line no="51"/>
+      <line no="52">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demande</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -339,7 +394,7 @@
         <token name="T_CLOSE_SQUARE">]</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="48">
+      <line no="53">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demande</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -353,7 +408,7 @@
         <token name="T_CLOSE_SQUARE">]</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="49">
+      <line no="54">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demande</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -367,7 +422,7 @@
         <token name="T_CLOSE_SQUARE">]</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="50">
+      <line no="55">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demande</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -381,7 +436,7 @@
         <token name="T_CLOSE_SQUARE">]</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="51">
+      <line no="56">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demande</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -390,8 +445,8 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="52"/>
-      <line no="53">
+      <line no="57"/>
+      <line no="58">
         <token name="T_WHITESPACE">            </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -405,11 +460,11 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="54">
+      <line no="59">
         <token name="T_WHITESPACE">        </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="55">
+      <line no="60">
         <token name="T_WHITESPACE">        </token>
         <token name="T_STRING">abort</token>
         <token name="T_OPEN_BRACKET">(</token>
@@ -417,13 +472,13 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="56"/>
-      <line no="57">
+      <line no="61"/>
+      <line no="62">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="58"/>
-      <line no="59">
+      <line no="63"/>
+      <line no="64">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -444,12 +499,12 @@
         <token name="T_VARIABLE">$id</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="60">
+      <line no="65">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="61"/>
-      <line no="62">
+      <line no="66"/>
+      <line no="67">
         <token name="T_WHITESPACE">        </token>
         <token name="T_IF">if</token>
         <token name="T_WHITESPACE"> </token>
@@ -466,11 +521,11 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="63">
+      <line no="68">
         <token name="T_WHITESPACE">        </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="64">
+      <line no="69">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demande</token>
         <token name="T_WHITESPACE"> </token>
@@ -484,8 +539,8 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="65"/>
-      <line no="66">
+      <line no="70"/>
+      <line no="71">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$consultation</token>
         <token name="T_WHITESPACE"> </token>
@@ -498,75 +553,75 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="67">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$consultation</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">date</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$demande</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">date</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="68">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$consultation</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">deadline</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$demande</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">deadline</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="69">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$consultation</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">delay</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$demande</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">delay</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="70">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$consultation</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">type_id</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$demande</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">type_id</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="71">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$consultation</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">user_id</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$demande</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">user_id</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
       <line no="72">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$consultation</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">date</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$demande</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">date</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="73">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$consultation</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">deadline</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$demande</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">deadline</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="74">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$consultation</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">delay</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$demande</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">delay</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="75">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$consultation</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">type_id</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$demande</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">type_id</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="76">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$consultation</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">user_id</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$demande</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">user_id</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="77">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$consultation</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
         <token name="T_STRING">praticien_id</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_EQUAL">=</token>
@@ -576,7 +631,7 @@
         <token name="T_STRING">praticien_id</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="73">
+      <line no="78">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$consultation</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -585,8 +640,8 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="74"/>
-      <line no="75">
+      <line no="79"/>
+      <line no="80">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demande</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -595,8 +650,8 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="76"/>
-      <line no="77">
+      <line no="81"/>
+      <line no="82">
         <token name="T_WHITESPACE">            </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -610,11 +665,11 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="78">
+      <line no="83">
         <token name="T_WHITESPACE">        </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="79">
+      <line no="84">
         <token name="T_WHITESPACE">        </token>
         <token name="T_STRING">abort</token>
         <token name="T_OPEN_BRACKET">(</token>
@@ -622,135 +677,98 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="80"/>
-      <line no="81">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="82"/>
-      <line no="83">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_DOC_COMMENT">/**</token>
-      </line>
-      <line no="84">
-        <token name="T_DOC_COMMENT">     * Display the specified resource.</token>
-      </line>
-      <line no="85">
-        <token name="T_DOC_COMMENT">     */</token>
-      </line>
+      <line no="85"/>
       <line no="86">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">show</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">demande</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$demande</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="87">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="88">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_COMMENT">//</token>
-      </line>
-      <line no="89">
-        <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="90"/>
-      <line no="91">
+      <line no="87"/>
+      <line no="88">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
+      <line no="89">
+        <token name="T_DOC_COMMENT">     * Display the specified resource.</token>
+      </line>
+      <line no="90">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="91">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">// public function show(demande $demande)</token>
+      </line>
       <line no="92">
-        <token name="T_DOC_COMMENT">     * Show the form for editing the specified resource.</token>
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">// {</token>
       </line>
       <line no="93">
-        <token name="T_DOC_COMMENT">     */</token>
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">//     //</token>
       </line>
       <line no="94">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">edit</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">demande</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$demande</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMENT">// }</token>
       </line>
-      <line no="95">
+      <line no="95"/>
+      <line no="96">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
+        <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="96"/>
       <line no="97">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_DOC_COMMENT">     * Show the form for editing the specified resource.</token>
       </line>
-      <line no="98"/>
+      <line no="98">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
       <line no="99">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_DOC_COMMENT">/**</token>
+        <token name="T_COMMENT">// public function edit(demande $demande)</token>
       </line>
       <line no="100">
-        <token name="T_DOC_COMMENT">     * Update the specified resource in storage.</token>
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">// {</token>
       </line>
-      <line no="101">
-        <token name="T_DOC_COMMENT">     */</token>
-      </line>
+      <line no="101"/>
       <line no="102">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">update</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">Request</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$request</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">demande</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$demande</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">Type</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$type</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMENT">// }</token>
       </line>
-      <line no="103">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="104"/>
-      <line no="105">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="106"/>
-      <line no="107">
+      <line no="103"/>
+      <line no="104">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="108">
-        <token name="T_DOC_COMMENT">     * Remove the specified resource from storage.</token>
+      <line no="105">
+        <token name="T_DOC_COMMENT">     * Update the specified resource in storage.</token>
       </line>
-      <line no="109">
+      <line no="106">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
+      <line no="107">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">// public function update(Request $request, demande $demande, Type $type)</token>
+      </line>
+      <line no="108">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">// {</token>
+      </line>
+      <line no="109"/>
       <line no="110">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_COMMENT">// }</token>
+      </line>
+      <line no="111"/>
+      <line no="112">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="113">
+        <token name="T_DOC_COMMENT">     * Remove the specified resource from storage.</token>
+      </line>
+      <line no="114">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="115">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -763,11 +781,11 @@
         <token name="T_VARIABLE">$demande</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="111">
+      <line no="116">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="112">
+      <line no="117">
         <token name="T_WHITESPACE">        </token>
         <token name="T_IF">if</token>
         <token name="T_WHITESPACE"> </token>
@@ -784,11 +802,11 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="113">
+      <line no="118">
         <token name="T_WHITESPACE">        </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="114">
+      <line no="119">
         <token name="T_WHITESPACE">            </token>
         <token name="T_VARIABLE">$demande</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -797,7 +815,7 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="115">
+      <line no="120">
         <token name="T_WHITESPACE">            </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -811,11 +829,11 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="116">
+      <line no="121">
         <token name="T_WHITESPACE">        </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="117">
+      <line no="122">
         <token name="T_WHITESPACE">        </token>
         <token name="T_STRING">abort</token>
         <token name="T_OPEN_BRACKET">(</token>
@@ -823,15 +841,15 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="118"/>
-      <line no="119">
+      <line no="123"/>
+      <line no="124">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="120">
+      <line no="125">
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="121"/>
+      <line no="126"/>
     </source>
   </file>
 </phpunit>

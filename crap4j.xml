@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-30 16:25:05</timestamp>
+  <timestamp>2024-05-01 15:49:42</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>92</methodCount>
+    <methodCount>71</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>221.6</totalCrap>
+    <totalCrap>147.29</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -50,53 +50,9 @@
       <methodName>index</methodName>
       <methodSignature>index()</methodSignature>
       <fullMethod>index()</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers\API</package>
-      <className>App\Http\Controllers\API\PraticienController</className>
-      <methodName>store</methodName>
-      <methodSignature>store(Illuminate\Http\Request $request)</methodSignature>
-      <fullMethod>store(Illuminate\Http\Request $request)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers\API</package>
-      <className>App\Http\Controllers\API\PraticienController</className>
-      <methodName>show</methodName>
-      <methodSignature>show(string $id)</methodSignature>
-      <fullMethod>show(string $id)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers\API</package>
-      <className>App\Http\Controllers\API\PraticienController</className>
-      <methodName>update</methodName>
-      <methodSignature>update(Illuminate\Http\Request $request, string $id)</methodSignature>
-      <fullMethod>update(Illuminate\Http\Request $request, string $id)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers\API</package>
-      <className>App\Http\Controllers\API\PraticienController</className>
-      <methodName>destroy</methodName>
-      <methodSignature>destroy(string $id)</methodSignature>
-      <fullMethod>destroy(string $id)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -292,19 +248,8 @@
       <methodName>store</methodName>
       <methodSignature>store(Illuminate\Http\Request $request, App\Models\Type $type)</methodSignature>
       <fullMethod>store(Illuminate\Http\Request $request, App\Models\Type $type)</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\ConsultationController</className>
-      <methodName>show</methodName>
-      <methodSignature>show(App\Models\Consultation $consultation)</methodSignature>
-      <fullMethod>show(App\Models\Consultation $consultation)</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -314,9 +259,9 @@
       <methodName>edit</methodName>
       <methodSignature>edit(App\Models\Consultation $consultation)</methodSignature>
       <fullMethod>edit(App\Models\Consultation $consultation)</fullMethod>
-      <crap>3.19</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>33.33</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -348,19 +293,8 @@
       <methodSignature>index()</methodSignature>
       <fullMethod>index()</fullMethod>
       <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\DemandeController</className>
-      <methodName>create</methodName>
-      <methodSignature>create()</methodSignature>
-      <fullMethod>create()</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -388,45 +322,12 @@
     <method>
       <package>App\Http\Controllers</package>
       <className>App\Http\Controllers\DemandeController</className>
-      <methodName>show</methodName>
-      <methodSignature>show(App\Models\Demande $demande)</methodSignature>
-      <fullMethod>show(App\Models\Demande $demande)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\DemandeController</className>
-      <methodName>edit</methodName>
-      <methodSignature>edit(App\Models\Demande $demande)</methodSignature>
-      <fullMethod>edit(App\Models\Demande $demande)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\DemandeController</className>
-      <methodName>update</methodName>
-      <methodSignature>update(Illuminate\Http\Request $request, App\Models\Demande $demande, App\Models\Type $type)</methodSignature>
-      <fullMethod>update(Illuminate\Http\Request $request, App\Models\Demande $demande, App\Models\Type $type)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\DemandeController</className>
       <methodName>destroy</methodName>
       <methodSignature>destroy(App\Models\Demande $demande)</methodSignature>
       <fullMethod>destroy(App\Models\Demande $demande)</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -435,9 +336,9 @@
       <methodName>index</methodName>
       <methodSignature>index()</methodSignature>
       <fullMethod>index()</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -446,9 +347,9 @@
       <methodName>create</methodName>
       <methodSignature>create()</methodSignature>
       <fullMethod>create()</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -457,20 +358,9 @@
       <methodName>store</methodName>
       <methodSignature>store(Illuminate\Http\Request $request)</methodSignature>
       <fullMethod>store(Illuminate\Http\Request $request)</fullMethod>
-      <crap>6</crap>
+      <crap>3.88</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\PraticienController</className>
-      <methodName>show</methodName>
-      <methodSignature>show(App\Models\Praticien $praticien)</methodSignature>
-      <fullMethod>show(App\Models\Praticien $praticien)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>22.22</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -479,9 +369,9 @@
       <methodName>edit</methodName>
       <methodSignature>edit(App\Models\Praticien $praticien)</methodSignature>
       <fullMethod>edit(App\Models\Praticien $praticien)</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -501,9 +391,9 @@
       <methodName>destroy</methodName>
       <methodSignature>destroy(App\Models\Praticien $praticien)</methodSignature>
       <fullMethod>destroy(App\Models\Praticien $praticien)</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -541,83 +431,6 @@
     </method>
     <method>
       <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\TypeController</className>
-      <methodName>index</methodName>
-      <methodSignature>index()</methodSignature>
-      <fullMethod>index()</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\TypeController</className>
-      <methodName>create</methodName>
-      <methodSignature>create()</methodSignature>
-      <fullMethod>create()</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\TypeController</className>
-      <methodName>store</methodName>
-      <methodSignature>store(Illuminate\Http\Request $request)</methodSignature>
-      <fullMethod>store(Illuminate\Http\Request $request)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\TypeController</className>
-      <methodName>show</methodName>
-      <methodSignature>show(App\Models\Type $type)</methodSignature>
-      <fullMethod>show(App\Models\Type $type)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\TypeController</className>
-      <methodName>edit</methodName>
-      <methodSignature>edit(App\Models\Type $type)</methodSignature>
-      <fullMethod>edit(App\Models\Type $type)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\TypeController</className>
-      <methodName>update</methodName>
-      <methodSignature>update(Illuminate\Http\Request $request, App\Models\Type $type)</methodSignature>
-      <fullMethod>update(Illuminate\Http\Request $request, App\Models\Type $type)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\TypeController</className>
-      <methodName>destroy</methodName>
-      <methodSignature>destroy(App\Models\Type $type)</methodSignature>
-      <fullMethod>destroy(App\Models\Type $type)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
       <className>App\Http\Controllers\UserController</className>
       <methodName>index</methodName>
       <methodSignature>index()</methodSignature>
@@ -633,17 +446,6 @@
       <methodName>create</methodName>
       <methodSignature>create()</methodSignature>
       <fullMethod>create()</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\UserController</className>
-      <methodName>store</methodName>
-      <methodSignature>store(Illuminate\Http\Request $request)</methodSignature>
-      <fullMethod>store(Illuminate\Http\Request $request)</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -657,39 +459,6 @@
       <fullMethod>show($id)</fullMethod>
       <crap>6</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\UserController</className>
-      <methodName>edit</methodName>
-      <methodSignature>edit(App\Models\User $user)</methodSignature>
-      <fullMethod>edit(App\Models\User $user)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\UserController</className>
-      <methodName>update</methodName>
-      <methodSignature>update(Illuminate\Http\Request $request, App\Models\User $user)</methodSignature>
-      <fullMethod>update(Illuminate\Http\Request $request, App\Models\User $user)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>App\Http\Controllers</package>
-      <className>App\Http\Controllers\UserController</className>
-      <methodName>destroy</methodName>
-      <methodSignature>destroy(App\Models\User $user)</methodSignature>
-      <fullMethod>destroy(App\Models\User $user)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -798,9 +567,9 @@
       <methodName>type</methodName>
       <methodSignature>type()</methodSignature>
       <fullMethod>type()</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -809,9 +578,9 @@
       <methodName>user</methodName>
       <methodSignature>user()</methodSignature>
       <fullMethod>user()</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -831,9 +600,9 @@
       <methodName>user</methodName>
       <methodSignature>user()</methodSignature>
       <fullMethod>user()</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -842,9 +611,9 @@
       <methodName>type</methodName>
       <methodSignature>type()</methodSignature>
       <fullMethod>type()</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -864,9 +633,9 @@
       <methodName>type</methodName>
       <methodSignature>type()</methodSignature>
       <fullMethod>type()</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -998,7 +767,7 @@
       <fullMethod>boot(): void</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>90</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
