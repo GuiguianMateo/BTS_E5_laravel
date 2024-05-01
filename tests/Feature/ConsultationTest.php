@@ -41,6 +41,29 @@ class ConsultationTest extends TestCase
         $response->assertStatus(401);
     }
 
+    public function test_user_without_role_cant_store_consultation() : void
+    {
+        $user = User::factory()->create();
+        Bouncer::refresh();
+
+        $praticien = Praticien::factory()->create();
+        $type = Type::factory()->create();
+        $user = User::factory()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->post("/consultation", [
+                'date' => '2022-12-22',
+                'deadline' => '2023-12-22',
+                'delay' => '1',
+                'type_id' => $type->id,
+                'user_id' => $user->id,
+                'praticien_id' => $praticien->id,
+            ]);
+
+        $response->assertStatus(401);
+    }
+
     public function test_user_without_role_cant_edit_consultation() : void
     {
         $user = User::factory()->create();
@@ -51,6 +74,29 @@ class ConsultationTest extends TestCase
         $response = $this
             ->actingAs($user)
             ->get("/consultation/{$consultation->id}/edit");
+
+        $response->assertStatus(401);
+    }
+
+    public function test_user_without_role_cant_update_consultation() : void
+    {
+        $user = User::factory()->create();
+        Bouncer::refresh();
+
+        $type = Type::factory()->create();
+        $praticien = Praticien::factory()->create();
+        $consultation = Consultation::factory()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->get("/consultation/{$consultation->id}/edit", [
+                'date' => '2022-12-22',
+                'deadline' => '2023-12-22',
+                'delay' => '1',
+                'type_id' => $type->id,
+                'user_id' => $user->id,
+                'praticien_id' => $praticien->id,
+            ]);
 
         $response->assertStatus(401);
     }

@@ -40,6 +40,24 @@ class PraticienTest extends TestCase
         $response->assertStatus(401);
     }
 
+    public function test_user_without_role_cant_store_praticien() : void
+    {
+        $user = User::factory()->create();
+        Bouncer::refresh();
+
+        $type = Type::factory()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->post("/praticien", [
+                'name' => 'bobb',
+                'job' => 'vlogeur',
+                'type_id' => $type->id,
+            ]);
+
+        $response->assertStatus(401);
+    }
+
     public function test_user_without_role_cant_edit_praticien() : void
     {
         $user = User::factory()->create();
@@ -50,6 +68,26 @@ class PraticienTest extends TestCase
         $response = $this
             ->actingAs($user)
             ->get("/praticien/{$praticien->id}/edit");
+
+        $response->assertStatus(401);
+    }
+
+    public function test_user_without_role_cant_update_praticien() : void
+    {
+        $user = User::factory()->create();
+        Bouncer::refresh();
+
+        $type = Type::factory()->create();
+        $praticien = Praticien::factory()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->get("/praticien/{$praticien->id}/edit", [
+                'name' => 'bobb',
+                'job' => 'vlogeur',
+                'type_id' => $type->id,
+
+            ]);
 
         $response->assertStatus(401);
     }
