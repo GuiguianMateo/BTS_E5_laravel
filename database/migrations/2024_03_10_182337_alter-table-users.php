@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('firstname')->nullable();
             $table->date('birthday')->nullable();
+            $table->string('gender')->nullable();
             $table->boolean('client')->default(1);
         });
     }

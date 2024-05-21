@@ -1,20 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class=" bg-white mx-auto p-2 mt-5 max-w-96 border-2 rounded ">
 
     <div class="mb-3">
-        <strong>name :</strong> {{ $user->name }}
+        <strong>Nom :</strong> {{ $user->name }}
     </div>
     <div class="mb-3">
-        <strong>firstname :</strong> {{ $user->firstname }}
+        <strong>Prénom :</strong> {{ $user->firstname }}
     </div>
     <div class="mb-3">
         <strong>email :</strong> {{ $user->email }}
     </div>
     <div class="mb-3">
-        <strong>birthday :</strong> {{ $user->birthday }}
+        <strong>Date de naissance :</strong> {{ $user->birthday }}
     </div>
-
+    <div class="mb-3">
+        <strong>sexe :</strong> {{ $user->gender }}
+    </div>
 </div>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Consultation;
 use App\Models\Demande;
+use App\Models\praticien;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,10 +29,26 @@ class ConsultationController extends Controller
      */
     public function create()
     {
-        $consultations = consultation::all();
-        $types = type::all();
-        $users = user::all();
-        return view('consultation.create', compact('consultations','types','users'));
+        if (Auth::user()->can('demande-create'))
+        {
+            $consultations = consultation::all();
+            $types = type::all();
+            $users = user::all();
+
+            // Récupérer le type sélectionné dans la requête (s'il existe)
+            $selectedTypeId = request()->input('type_id');
+
+            // Si un type est sélectionné, récupérer uniquement les praticiens en relation avec ce type
+            if ($selectedTypeId) {
+                $praticiens = Praticien::where('type_id', $selectedTypeId)->get();
+            } else {
+                $praticiens = Praticien::all();
+            }
+
+            return view('consultation.create', compact('consultations', 'types', 'users', 'praticiens'));
+        }
+        abort(401);
+
     }
 
     /**
@@ -39,39 +56,51 @@ class ConsultationController extends Controller
      */
     public function store(Request $request, Type $type)
     {
-        $data = $request->all();
+        if (Auth::user()->can('consultation-create'))
+        {
+            $data = $request->all();
 
-        $consultation = new Consultation;
-        $type = Type::find($data['type_id']);
+            $consultation = new Consultation;
+            $type = Type::findOrFail($data['type_id']);
 
-        $consultation->date = $data['date'];
+            $consultation->date = $data['date'];
 
-        $consultation->limitedate = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
+            $consultation->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
 
-        $consultation->delay = $data['delay'];
-        $consultation->type_id = $data['type_id'];
-        $consultation->user_id = $data['user_id'];
-        $consultation->save();
+            $consultation->delay = $data['delay'];
+            $consultation->type_id = $data['type_id'];
+            $consultation->user_id = $data['user_id'];
+            $consultation->praticien_id = $data['praticien_id'];
+            $consultation->save();
 
-        return redirect()->route('consultation.index');
+            return redirect()->route('consultation.index');
+        }
+        abort(401);
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Consultation $consultation)
-    {
-        //
-    }
+    // public function show(Consultation $consultation)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Consultation $consultation)
     {
-        $types = type::all();
-        $users = user::all();
-        return view('consultation.edit', compact('consultation','types','users'));
+        if (Auth::user()->can('consultation-edit'))
+        {
+            $types = type::all();
+            $users = user::all();
+            $praticiens = praticien::all();
+            return view('consultation.edit', compact('consultation','types','users','praticiens'));
+        }
+        abort(401);
+
     }
 
     /**
@@ -82,13 +111,13 @@ class ConsultationController extends Controller
 
         if (Auth::user()->can('consultation-edit'))
         {
-            $consultation = Consultation::find($consultation->id);
+            $consultation = Consultation::findOrFail($consultation->id);
             $data = $request->all();
-            $type = Type::find($data['type_id']);
+            $type = Type::findOrFail($data['type_id']);
 
             $consultation->date = $data['date'];
 
-            $consultation->limitedate = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
+            $consultation->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
 
             $consultation->delay = $data['delay'];
             $consultation->type_id = $data['type_id'];
@@ -111,6 +140,5 @@ class ConsultationController extends Controller
             return redirect()->route('consultation.index');
         }
         abort(401);
-
     }
 }

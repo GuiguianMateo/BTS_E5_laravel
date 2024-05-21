@@ -13,4 +13,14 @@ class praticien extends Model
     {
         return $this->belongsTo(type::class);
     }
+
+    function consultation()
+    {
+        return $this->hasMany(consultation::class);
+    }
+
+    function demande()
+    {
+        return $this->hasMany(demande::class);
+    }
 }
