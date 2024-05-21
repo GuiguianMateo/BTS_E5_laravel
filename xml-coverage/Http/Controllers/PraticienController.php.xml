@@ -2,89 +2,21 @@
 <phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
   <file name="PraticienController.php" path="\Http\Controllers">
     <totals>
-      <lines total="123" comments="25" code="98" executable="35" executed="19" percent="54.29"/>
-      <methods count="6" tested="4" percent="66.67"/>
+      <lines total="123" comments="25" code="98" executable="35" executed="0" percent="0.00"/>
+      <methods count="6" tested="0" percent="0.00"/>
       <functions count="0" tested="0" percent="0"/>
       <classes count="1" tested="0" percent="0.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\Http\Controllers\PraticienController" start="13" executable="35" executed="19" crap="25.76">
+    <class name="App\Http\Controllers\PraticienController" start="13" executable="35" executed="0" crap="156">
       <namespace name="App\Http\Controllers"/>
-      <method name="index" signature="index()" start="18" end="28" crap="2" executable="4" executed="4" coverage="100"/>
-      <method name="create" signature="create()" start="33" end="43" crap="2" executable="5" executed="5" coverage="100"/>
-      <method name="store" signature="store(Illuminate\Http\Request $request)" start="48" end="65" crap="3.88" executable="9" executed="2" coverage="22.222222222222"/>
-      <method name="edit" signature="edit(App\Models\Praticien $praticien)" start="78" end="87" crap="2" executable="4" executed="4" coverage="100"/>
+      <method name="index" signature="index()" start="18" end="28" crap="6" executable="4" executed="0" coverage="0"/>
+      <method name="create" signature="create()" start="33" end="43" crap="6" executable="5" executed="0" coverage="0"/>
+      <method name="store" signature="store(Illuminate\Http\Request $request)" start="48" end="65" crap="6" executable="9" executed="0" coverage="0"/>
+      <method name="edit" signature="edit(App\Models\Praticien $praticien)" start="78" end="87" crap="6" executable="4" executed="0" coverage="0"/>
       <method name="update" signature="update(Illuminate\Http\Request $request, App\Models\Praticien $praticien)" start="92" end="108" crap="6" executable="9" executed="0" coverage="0"/>
-      <method name="destroy" signature="destroy(App\Models\Praticien $praticien)" start="113" end="121" crap="2" executable="4" executed="4" coverage="100"/>
+      <method name="destroy" signature="destroy(App\Models\Praticien $praticien)" start="113" end="121" crap="6" executable="4" executed="0" coverage="0"/>
     </class>
-    <coverage>
-      <line nr="20">
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_view_praticien_index"/>
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_view_praticien_index"/>
-      </line>
-      <line nr="22">
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_view_praticien_index"/>
-      </line>
-      <line nr="23">
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_view_praticien_index"/>
-      </line>
-      <line nr="25">
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_view_praticien_index"/>
-      </line>
-      <line nr="35">
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_create_praticien"/>
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_create_praticien"/>
-      </line>
-      <line nr="37">
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_create_praticien"/>
-      </line>
-      <line nr="38">
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_create_praticien"/>
-      </line>
-      <line nr="39">
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_create_praticien"/>
-      </line>
-      <line nr="41">
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_create_praticien"/>
-      </line>
-      <line nr="50">
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_store_praticien"/>
-      </line>
-      <line nr="64">
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_store_praticien"/>
-      </line>
-      <line nr="80">
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_edit_praticien"/>
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_update_praticien"/>
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_edit_praticien"/>
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_update_praticien"/>
-      </line>
-      <line nr="82">
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_edit_praticien"/>
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_update_praticien"/>
-      </line>
-      <line nr="83">
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_edit_praticien"/>
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_update_praticien"/>
-      </line>
-      <line nr="85">
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_edit_praticien"/>
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_update_praticien"/>
-      </line>
-      <line nr="115">
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_delete_praticien"/>
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_delete_praticien"/>
-      </line>
-      <line nr="117">
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_delete_praticien"/>
-      </line>
-      <line nr="118">
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_delete_praticien"/>
-      </line>
-      <line nr="120">
-        <covered by="Tests\Feature\PraticienTest::test_user_without_role_cant_delete_praticien"/>
-      </line>
-    </coverage>
     <source>
       <line no="1">
         <token name="T_OPEN_TAG">&lt;?php</token>

@@ -2,24 +2,18 @@
 <phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
   <file name="Praticien.php" path="\Models">
     <totals>
-      <lines total="27" comments="0" code="27" executable="3" executed="1" percent="33.33"/>
-      <methods count="3" tested="1" percent="33.33"/>
+      <lines total="27" comments="0" code="27" executable="3" executed="0" percent="0.00"/>
+      <methods count="3" tested="0" percent="0.00"/>
       <functions count="0" tested="0" percent="0"/>
       <classes count="1" tested="0" percent="0.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\Models\praticien" start="8" executable="3" executed="1" crap="5.67">
+    <class name="App\Models\praticien" start="8" executable="3" executed="0" crap="12">
       <namespace name="App\Models"/>
-      <method name="type" signature="type()" start="12" end="15" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="type" signature="type()" start="12" end="15" crap="2" executable="1" executed="0" coverage="0"/>
       <method name="consultation" signature="consultation()" start="17" end="20" crap="2" executable="1" executed="0" coverage="0"/>
       <method name="demande" signature="demande()" start="22" end="25" crap="2" executable="1" executed="0" coverage="0"/>
     </class>
-    <coverage>
-      <line nr="14">
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_edit_praticien"/>
-        <covered by="Tests\Feature\PraticienTest::test_user_with_role_can_update_praticien"/>
-      </line>
-    </coverage>
     <source>
       <line no="1">
         <token name="T_OPEN_TAG">&lt;?php</token>

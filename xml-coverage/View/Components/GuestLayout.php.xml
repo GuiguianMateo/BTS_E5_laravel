@@ -14,12 +14,7 @@
     </class>
     <coverage>
       <line nr="15">
-        <covered by="Tests\Feature\Auth\AuthenticationTest::test_login_screen_can_be_rendered"/>
-        <covered by="Tests\Feature\Auth\EmailVerificationTest::test_email_verification_screen_can_be_rendered"/>
-        <covered by="Tests\Feature\Auth\PasswordConfirmationTest::test_confirm_password_screen_can_be_rendered"/>
-        <covered by="Tests\Feature\Auth\PasswordResetTest::test_reset_password_link_screen_can_be_rendered"/>
-        <covered by="Tests\Feature\Auth\PasswordResetTest::test_reset_password_screen_can_be_rendered"/>
-        <covered by="Tests\Feature\Auth\RegistrationTest::test_registration_screen_can_be_rendered"/>
+        <covered by="Tests\Feature\UserTest::test_people_with_account_can_show_user_info"/>
       </line>
     </coverage>
     <source>
