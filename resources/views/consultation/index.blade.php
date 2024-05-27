@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="container"><br>
-    @can('demande-create')
-        <a href="{{ route('consultation.create') }}" class="btn btn-primary mb-3">Ajouter une Consultation</a>
-    @endcan
+    <a href="{{ route('consultation.create') }}" class="btn btn-primary mb-3">Ajouter une Consultation</a>
     <ul class="list-group">
         @forelse ($consultations as $consultation)
             @if (Auth::user()->client == 0)

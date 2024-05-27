@@ -29,26 +29,21 @@ class ConsultationController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->can('demande-create'))
-        {
-            $consultations = consultation::all();
-            $types = type::all();
-            $users = user::all();
+        $consultations = consultation::all();
+        $types = type::all();
+        $users = user::all();
 
-            // Récupérer le type sélectionné dans la requête (s'il existe)
-            $selectedTypeId = request()->input('type_id');
+        // Récupérer le type sélectionné dans la requête (s'il existe)
+        $selectedTypeId = request()->input('type_id');
 
-            // Si un type est sélectionné, récupérer uniquement les praticiens en relation avec ce type
-            if ($selectedTypeId) {
-                $praticiens = Praticien::where('type_id', $selectedTypeId)->get();
-            } else {
-                $praticiens = Praticien::all();
-            }
-
-            return view('consultation.create', compact('consultations', 'types', 'users', 'praticiens'));
+        // Si un type est sélectionné, récupérer uniquement les praticiens en relation avec ce type
+        if ($selectedTypeId) {
+            $praticiens = Praticien::where('type_id', $selectedTypeId)->get();
+        } else {
+            $praticiens = Praticien::all();
         }
-        abort(401);
 
+        return view('consultation.create', compact('consultations', 'types', 'users', 'praticiens'));
     }
 
     /**

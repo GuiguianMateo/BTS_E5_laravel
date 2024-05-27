@@ -39,8 +39,6 @@ class DemandeController extends Controller
      */
     public function store(Request $request, Type $type)
     {
-        if (Auth::user()->can('demande-create'))
-        {
             $data = $request->all();
 
             $demande = new demande;
@@ -56,9 +54,6 @@ class DemandeController extends Controller
             $demande->save();
 
             return redirect()->route('consultation.index');
-        }
-        abort(401);
-
     }
 
     public function accept(Request $request, Consultation $consultation, $id)
