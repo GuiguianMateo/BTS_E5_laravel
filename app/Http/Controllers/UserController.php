@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,7 +42,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        if (Auth::user()->id === $user->id)
+        if (Auth::user()->id === $user->id || Auth::user()->client == 0)
         {
             return view('user.show', compact('user'));
         }
