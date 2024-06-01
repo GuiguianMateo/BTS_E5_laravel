@@ -39,15 +39,28 @@ class DemandeController extends Controller
      */
     public function store(Request $request, Type $type)
     {
-        if (Auth::user()->can('demande-create'))
-        {
+        $request->validate([
+            'date' => 'required|date',
+            'type_id' => 'required|exists:types,id',
+            'delay' => 'required|integer',
+            'user_id' => 'required|exists:users,id',
+            'praticien_id' => 'required|exists:praticiens,id',
+        ], [
+            'date.required' => 'La date est obligatoire.',
+            'date.date' => 'Le format de la date est invalide.',
+            'type_id.required' => 'Le type est obligatoire.',
+            'delay.required' => 'Le délai est obligatoire.',
+            'user_id.required' => 'L\'utilisateur est obligatoire.',
+            'praticien_id.required' => 'Le praticien est obligatoire.',
+        ]);
+
             $data = $request->all();
 
             $demande = new demande;
             $type = Type::findOrFail($data['type_id']);
             $demande->date = $data['date'];
 
-            $demande->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
+            $demande->deadline = date('Y-m-d H:i:s', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
 
             $demande->delay = $data['delay'];
             $demande->type_id = $data['type_id'];
@@ -56,9 +69,6 @@ class DemandeController extends Controller
             $demande->save();
 
             return redirect()->route('consultation.index');
-        }
-        abort(401);
-
     }
 
     public function accept(Request $request, Consultation $consultation, $id)

@@ -47,6 +47,18 @@ class PraticienController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string',
+            'job' => 'required|string',
+            'type_id' => 'required|exists:types,id',
+        ], [
+            'name.required' => 'Le nom est obligatoire.',
+            'name.string' => 'Le nom doit être une chaîne de caractères.',
+            'job.required' => 'Le travail est obligatoire.',
+            'job.string' => 'Le travail doit être une chaîne de caractères.',
+            'type_id.required' => 'Le type est obligatoire.',
+        ]);
+
         if (Auth::user()->can('praticien-create'))
         {
             $data = $request->all();
@@ -91,6 +103,18 @@ class PraticienController extends Controller
      */
     public function update(Request $request, praticien $praticien)
     {
+        $request->validate([
+            'name' => 'required|string',
+            'job' => 'required|string',
+            'type_id' => 'required|exists:types,id',
+        ], [
+            'name.required' => 'Le nom est obligatoire.',
+            'name.string' => 'Le nom doit être une chaîne de caractères.',
+            'job.required' => 'Le travail est obligatoire.',
+            'job.string' => 'Le travail doit être une chaîne de caractères.',
+            'type_id.required' => 'Le type est obligatoire.',
+        ]);
+
         if (Auth::user()->can('praticien-edit'))
         {
             $praticien = Praticien::findOrFail($praticien->id);
@@ -114,8 +138,20 @@ class PraticienController extends Controller
     {
         if (Auth::user()->can('praticien-delete'))
         {
-            $praticien->delete();
-            return redirect()->route('praticien.index');
+            try {
+                $praticien->delete();
+
+                return redirect()->route('praticien.index')->with('success', 'Praticien supprimé avec succès.');
+            } catch (\Illuminate\Database\QueryException $e) {
+                // Vérifie si l'erreur est une violation de clé étrangère
+                if ($e->getCode() === '23000') {
+                    // Renvoie un message
+                    return redirect()->route('praticien.index')->with('error', 'Attention, vous ne pouvez pas supprimer ce praticien car il est déjà affilié à une consultation ou à une demande.');
+                }
+
+                // Renvoie un message
+                return redirect()->route('praticien.index')->with('error', 'Une erreur est survenue lors de la suppression du praticien.');
+            }
         }
         abort(401);
     }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->date('deadline');
+            $table->timestamp('date');
+            $table->timestamp('deadline');
             $table->boolean('delay');
             $table->foreignId('type_id')->constrained('types');
             $table->foreignId('user_id')->constrained('users');

@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container"><br>
+    <div class="container"><br>
+
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     @can('praticien-create')
         <a href="{{ route('praticien.create') }}" class="btn btn-primary mb-3">Ajouter un Praticien</a>
     @endcan

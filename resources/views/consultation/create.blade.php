@@ -12,7 +12,7 @@
             <div class="mb-3">
                 <label for="date" class="form-label">Date de la consultation</label>
 
-                <input type="date" class="form-control" name="date">
+                <input type="datetime-local" class="form-control" name="date">
                 @error("date")
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
@@ -95,7 +95,7 @@
             <div class="mb-3">
                 <label for="date" class="form-label">Date de la consultation</label>
 
-                <input type="date" class="form-control" name="date">
+                <input type="datetime-local" class="form-control" name="date">
                 @error("date")
                     <p class="text-danger">{{ $message }}</p>
                 @enderror

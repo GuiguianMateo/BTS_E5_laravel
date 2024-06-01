@@ -29,26 +29,21 @@ class ConsultationController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->can('demande-create'))
-        {
-            $consultations = consultation::all();
-            $types = type::all();
-            $users = user::all();
+        $consultations = consultation::all();
+        $types = type::all();
+        $users = user::all();
 
-            // Récupérer le type sélectionné dans la requête (s'il existe)
-            $selectedTypeId = request()->input('type_id');
+        // Récupérer le type sélectionné dans la requête (s'il existe)
+        $selectedTypeId = request()->input('type_id');
 
-            // Si un type est sélectionné, récupérer uniquement les praticiens en relation avec ce type
-            if ($selectedTypeId) {
-                $praticiens = Praticien::where('type_id', $selectedTypeId)->get();
-            } else {
-                $praticiens = Praticien::all();
-            }
-
-            return view('consultation.create', compact('consultations', 'types', 'users', 'praticiens'));
+        // Si un type est sélectionné, récupérer uniquement les praticiens en relation avec ce type
+        if ($selectedTypeId) {
+            $praticiens = Praticien::where('type_id', $selectedTypeId)->get();
+        } else {
+            $praticiens = Praticien::all();
         }
-        abort(401);
 
+        return view('consultation.create', compact('consultations', 'types', 'users', 'praticiens'));
     }
 
     /**
@@ -56,6 +51,22 @@ class ConsultationController extends Controller
      */
     public function store(Request $request, Type $type)
     {
+
+        $request->validate([
+            'date' => 'required|date',
+            'type_id' => 'required|exists:types,id',
+            'delay' => 'required|integer',
+            'user_id' => 'required|exists:users,id',
+            'praticien_id' => 'required|exists:praticiens,id',
+        ], [
+            'date.required' => 'La date est obligatoire.',
+            'date.date' => 'Le format de la date est invalide.',
+            'type_id.required' => 'Le type est obligatoire.',
+            'delay.required' => 'Le délai est obligatoire.',
+            'user_id.required' => 'L\'utilisateur est obligatoire.',
+            'praticien_id.required' => 'Le praticien est obligatoire.',
+        ]);
+
         if (Auth::user()->can('consultation-create'))
         {
             $data = $request->all();
@@ -65,7 +76,7 @@ class ConsultationController extends Controller
 
             $consultation->date = $data['date'];
 
-            $consultation->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
+            $consultation->deadline = date('Y-m-d H:i:s', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
 
             $consultation->delay = $data['delay'];
             $consultation->type_id = $data['type_id'];
@@ -108,6 +119,20 @@ class ConsultationController extends Controller
      */
     public function update(Request $request, Consultation $consultation, Type $type)
     {
+        $request->validate([
+            'date' => 'required|date',
+            'type_id' => 'required|exists:types,id',
+            'delay' => 'required|integer',
+            'user_id' => 'required|exists:users,id',
+            'praticien_id' => 'required|exists:praticiens,id',
+        ], [
+            'date.required' => 'La date est obligatoire.',
+            'date.date' => 'Le format de la date est invalide.',
+            'type_id.required' => 'Le type est obligatoire.',
+            'delay.required' => 'Le délai est obligatoire.',
+            'user_id.required' => 'L\'utilisateur est obligatoire.',
+            'praticien_id.required' => 'Le praticien est obligatoire.',
+        ]);
 
         if (Auth::user()->can('consultation-edit'))
         {
@@ -117,7 +142,7 @@ class ConsultationController extends Controller
 
             $consultation->date = $data['date'];
 
-            $consultation->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
+            $consultation->deadline = date('Y-m-d H:i:s', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
 
             $consultation->delay = $data['delay'];
             $consultation->type_id = $data['type_id'];
