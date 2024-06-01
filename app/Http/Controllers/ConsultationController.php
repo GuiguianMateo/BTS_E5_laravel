@@ -51,6 +51,22 @@ class ConsultationController extends Controller
      */
     public function store(Request $request, Type $type)
     {
+
+        $request->validate([
+            'date' => 'required|date',
+            'type_id' => 'required|exists:types,id',
+            'delay' => 'required|integer',
+            'user_id' => 'required|exists:users,id',
+            'praticien_id' => 'required|exists:praticiens,id',
+        ], [
+            'date.required' => 'La date est obligatoire.',
+            'date.date' => 'Le format de la date est invalide.',
+            'type_id.required' => 'Le type est obligatoire.',
+            'delay.required' => 'Le délai est obligatoire.',
+            'user_id.required' => 'L\'utilisateur est obligatoire.',
+            'praticien_id.required' => 'Le praticien est obligatoire.',
+        ]);
+
         if (Auth::user()->can('consultation-create'))
         {
             $data = $request->all();
@@ -103,6 +119,20 @@ class ConsultationController extends Controller
      */
     public function update(Request $request, Consultation $consultation, Type $type)
     {
+        $request->validate([
+            'date' => 'required|date',
+            'type_id' => 'required|exists:types,id',
+            'delay' => 'required|integer',
+            'user_id' => 'required|exists:users,id',
+            'praticien_id' => 'required|exists:praticiens,id',
+        ], [
+            'date.required' => 'La date est obligatoire.',
+            'date.date' => 'Le format de la date est invalide.',
+            'type_id.required' => 'Le type est obligatoire.',
+            'delay.required' => 'Le délai est obligatoire.',
+            'user_id.required' => 'L\'utilisateur est obligatoire.',
+            'praticien_id.required' => 'Le praticien est obligatoire.',
+        ]);
 
         if (Auth::user()->can('consultation-edit'))
         {
