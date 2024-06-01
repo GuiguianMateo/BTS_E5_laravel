@@ -10,7 +10,7 @@
         <div class="mb-3">
             <label for="date" class="form-label">Date de la consultation</label>
 
-            <input type="date" class="form-control" name="date" value="{{ $consultation->date }}">
+            <input type="datetime-local" class="form-control" name="date" value="{{ $consultation->date }}">
             @error("date")
                 <p class="text-danger">{{ $message }}</p>
             @enderror

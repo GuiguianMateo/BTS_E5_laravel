@@ -60,7 +60,7 @@ class ConsultationController extends Controller
 
             $consultation->date = $data['date'];
 
-            $consultation->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
+            $consultation->deadline = date('Y-m-d H:i:s', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
 
             $consultation->delay = $data['delay'];
             $consultation->type_id = $data['type_id'];
@@ -112,7 +112,7 @@ class ConsultationController extends Controller
 
             $consultation->date = $data['date'];
 
-            $consultation->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
+            $consultation->deadline = date('Y-m-d H:i:s', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
 
             $consultation->delay = $data['delay'];
             $consultation->type_id = $data['type_id'];

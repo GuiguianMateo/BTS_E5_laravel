@@ -26,9 +26,9 @@
         </div>
 
         <div class="mb-3">
-            <label for="type_id">Branche du praticien</label>
+            <label for="type_id">Secteur du Praticien</label>
             <select class="form-select" name="type_id" id="type_id">
-                <option value="type">Veuillez choisir une branche</option>
+                <option value="type">Veuillez choisir un secteur</option>
                 @foreach ($types as $type)
                     <option value="{{ $type->id }}">{{ $type->name }}</option>
                 @endforeach

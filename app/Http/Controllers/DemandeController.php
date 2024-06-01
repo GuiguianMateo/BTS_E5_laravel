@@ -45,7 +45,7 @@ class DemandeController extends Controller
             $type = Type::findOrFail($data['type_id']);
             $demande->date = $data['date'];
 
-            $demande->deadline = date('Y-m-d', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
+            $demande->deadline = date('Y-m-d H:i:s', strtotime($data['date'] . ' + ' . $type->duration . ' days'));
 
             $demande->delay = $data['delay'];
             $demande->type_id = $data['type_id'];
