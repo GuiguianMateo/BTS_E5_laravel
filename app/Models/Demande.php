@@ -11,16 +11,16 @@ class Demande extends Model
 
     function user()
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(User::class);
     }
 
     function type()
     {
-        return $this->belongsTo(type::class);
+        return $this->belongsTo(Type::class);
     }
 
     function praticien()
     {
-        return $this->belongsTo(praticien::class);
+        return $this->belongsTo(Praticien::class);
     }
 }

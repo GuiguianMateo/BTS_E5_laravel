@@ -11,16 +11,16 @@ class praticien extends Model
 
     function type()
     {
-        return $this->belongsTo(type::class);
+        return $this->belongsTo(Type::class);
     }
 
     function consultation()
     {
-        return $this->hasMany(consultation::class);
+        return $this->hasMany(Consultation::class);
     }
 
     function demande()
     {
-        return $this->hasMany(demande::class);
+        return $this->hasMany(Demande::class);
     }
 }

@@ -11,16 +11,16 @@ class Consultation extends Model
 
     function type()
     {
-        return $this->belongsTo(type::class);
+        return $this->belongsTo(Type::class);
     }
 
     function user()
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(User::class);
     }
 
     function praticien()
     {
-        return $this->belongsTo(praticien::class);
+        return $this->belongsTo(Praticien::class);
     }
 }
