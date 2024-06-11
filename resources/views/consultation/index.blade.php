@@ -14,6 +14,7 @@
                             <div class='min-w-40 text-center'>{{ $consultation->deadline }}</div>
                         </div>
                         <div class="flex justify-center gap-2">
+                            <a href="{{ route('consultation.show', $consultation->id) }}" class="btn btn-success">Information</a>
                             @can('consultation-edit')
                                 <a href="{{ route('consultation.edit', $consultation->id) }}" class="btn btn-primary">Modifier</a>
                             @endcan

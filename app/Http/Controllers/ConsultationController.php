@@ -94,12 +94,15 @@ class ConsultationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Consultation $consultation)
+    public function show($id)
     {
         $types = type::all();
         $users = user::all();
         $praticiens = praticien::all();
         $prescriptions = prescription::all();
+
+        $consultation = Consultation::findOrFail($id);
+
         return view('consultation.show', compact('consultation','types','users','praticiens','prescriptions'));
     }
 
