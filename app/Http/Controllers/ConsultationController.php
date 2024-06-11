@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Consultation;
 use App\Models\Demande;
 use App\Models\praticien;
+use App\Models\prescription;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -93,10 +94,14 @@ class ConsultationController extends Controller
     /**
      * Display the specified resource.
      */
-    // public function show(Consultation $consultation)
-    // {
-    //     //
-    // }
+    public function show(Consultation $consultation)
+    {
+        $types = type::all();
+        $users = user::all();
+        $praticiens = praticien::all();
+        $prescriptions = prescription::all();
+        return view('consultation.show', compact('consultation','types','users','praticiens','prescriptions'));
+    }
 
     /**
      * Show the form for editing the specified resource.
